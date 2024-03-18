@@ -1,0 +1,71 @@
+<% layout("/layouts/boilerplate.ejs") %>  
+
+<div class="container ">
+    <div class="container exam-section-top">
+        <div>
+            <p id="exam-section-font">Questions</p>
+        </div>
+        <div>
+            <a href="/addQuestion/<%= exam._id %>/add">
+                <button id="addExam">
+                   Add Questions
+                 </button>
+            </a>
+        </div>
+    </div>
+    
+    <div class="container EX-QU-btn">
+        <a href="/editform/<%= exam._id %>/edit"><button id="examDetailsBtn">Exam Details</button></a>
+         <a href="/Questions/<%= exam._id %>"><button class="questionsBtn">Questions</button> </a>
+    </div>
+    
+    
+    
+    <div class="exam-section">
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col border exam-section-columns">
+                    <strong>Question</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Options</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Correct-Option</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Action</strong>
+                </div>
+        
+            </div>
+        </div>    
+    </div>
+    <div class=" mb-5">
+        <% for(question of exam.questions){ %>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col border exam-section-columns">
+                        <%= question.question %>
+                    </div>
+                    <div class="col border exam-section-columns">
+                       <p> 1: <%= question.options[0] %> </p>
+                        <p> 2:<%= question.options[1] %> </p> 
+                       <p> 3:<%= question.options[2] %> </p>
+                        <p> 4:<%= question.options[3] %></p>
+                    </div>
+                    <div class="col border exam-section-columns" style="text-align: center;">
+                        <%= question.correct %>
+                    </div>
+                    <div class="col border exam-section-column" id="ed-icons" >
+                        <a href="/editQuestion/<%= exam._id %>/edit/<%= question._id  %>"><button><i class="fa-solid fa-pen"></i></button></a>
+                            |
+                        <form method="POST" action="/Exam/<%= exam._id %>/delete/<%= question._id %>?_method=DELETE" >
+                            <button><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>    
+    <% } %>
+</div>
+    
+

@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<body>
+  <div class="container exam-section">
+    <div>
+        <p id="exam-section-font">Edit Exam</p>
+    </div>
+  </div>
+<div>
+  
+</div>
+  <div class="container EX-QU-btn">
+    <button id="examDetailsBtn">Exam Details</button>
+     <a href="/Questions/<%= exam._id %>"><button class="questionsBtn">Questions</button> </a>
+  </div>
+  
+  <div class="container mb-6 admin-exam">
+      <form action="/editform/<%= exam._id %>?_method=PUT" method="POST" novalidate>
+        <div class="row">
+          <div class="mb-3 col">
+            <label for="examName" class="form-label">Exam Name :</label>
+            <input type="text" class="form-control" id="examName" name="exam[examName]" value="<%= exam.examName %>" style="border: 1px solid #555; font-size: 1rem;" required>
+          </div>
+          <div class="mb-3 col">
+            <label for="duration" class="form-label">Duration :</label>
+            <input type="number" class="form-control" id="duration" name="exam[duration]" value="<%= exam.duration %>" style="border: 1px solid #555; font-size: 1rem;"required>
+          </div>
+          <div class="mb-3 col">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category" name="exam[category]" style="border: 1px solid #555; font-size: 1rem;" required>
+              <option value="Beginner" <%= exam.category === 'Beginner' ? 'selected' : '' %> >Beginner </option>
+              <option value="Intermediate" <%= exam.category === 'Intermediate' ? 'selected' : '' %>>Intermediate</option>
+              <option value="Advance" <%= exam.category === 'Advance' ? 'selected' : '' %>>Advance</option>
+            </select>
+          </div>
+        </div>
+        <div class="div row">
+          <div class="mb-3 col">
+              <label for="totalMarks" class="form-label">totalMarks</label>
+              <input type="number" class="form-control" id="totalMarks" name="exam[totalMarks]" value="<%= exam.totalMarks %>" style="border: 1px solid #555; font-size: 1rem;" required>
+          </div>
+          <div class="mb-3 col">
+              <label for="passingMarks" class="form-label">passingMarks</label>
+              <input type="number" class="form-control" id="passingMarks" name="exam[passingMarks]" value="<%= exam.passingMarks %>" style="border: 1px solid #555; font-size: 1rem;" required>
+          </div>
+          <div class="mb-3 col">
+            <input type="hidden">
+          </div>
+        </div>
+        <div class="save-btn"> 
+          <button class="btn btn-outline-success">Save</button>
+          <a href="/showExamDetails"><button type="button" class="btn btn-outline-dark">Cancel</button></a>
+        </div> 
+      </form>
+  </div>
+</body>
+  

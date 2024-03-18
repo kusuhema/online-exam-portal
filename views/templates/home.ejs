@@ -1,0 +1,67 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="container-img">
+    <div class="first-image" style="width:750px ;">
+        <div class="image-text">
+            <!-- <h4 id="welcome-font">  </h4>  -->
+            <h3 id="homepage-font"><span style="font-weight: 600; color: #fc983b; font-size: 2rem;">Unlock Knowledge</span>, Test Your Wits - 
+                Dive into the Ultimate Online Exam Experience!</h3>
+            <h4 id="welcome-font">Welcome To <span style="color: #fc983b;">Online Exam Portal</span></h4>    
+            <% if(!currUser) { %>
+                <a href="/signup"> <button class="btn btn-dark">Sign Up And Explore</button> </a> 
+            <% } %>
+            
+        </div>
+    </div>
+    <div class="image">
+        <img src="/images/homepagelogo.jpg" height="500px" alt="image">
+    </div>
+</div>
+
+<div class="container second">
+    <div class="second-section-heading">
+        <h2><strong>What We Offer</strong></h2>
+    </div>
+    <div class="second-section">
+        <div class="second-sub-section">
+            <img src="/images/8262066.jpg" height="150px" width="150px" alt="image">
+            <h3><strong>Online Test</strong></h3>
+            <p><span>Real-Time Mastery</span>: Engage, Compete, Conquer – Experience the Thrill of Online Tests!</p>
+        </div>
+        <div class="second-sub-section">
+            <i class="fa-regular fa-circle-question"></i>
+            <h3><strong>High Yeild Questions</strong></h3>
+            <p><span>Maximize Success</span>: High-Yield Questions for Peak Performance – Your Key to Exam Excellence!</p>
+        </div>
+        <div class="second-sub-section">
+            <i class="fa-solid fa-chart-pie"></i>
+            <h3><strong>Insightful Analytics</strong></h3>
+            <p><span>Insightful Analytics</span>: Unveil Your Progress, Master Your Performance – Transform Data into Learning!</p>
+        </div>
+    </div>
+</div>
+<div class="container third-section">
+    <div class="third-sub-section">
+        <img src="/images/onlineTest.jpg" height="500px" alt="image">
+    </div>
+    <div class="third-sub-section">
+        <p><span style="color: #fc983b;"> Unlock Your Potential</span>: Take our Online Test Today and Discover a World of Knowledge at Your Fingertips!</p>
+        <br>
+        <a href="/allExams"><button class="btn btn-dark" >Explore Online Tests</button></a>
+    </div>
+</div>
+<div class="container third-section">
+    <div class="third-sub-section">
+        <p><span style="color: #fc983b;">Sharpen Your Skills</span>, Ace the Challenge – Elevate Your Learning with Practice Tests!</p>
+        <br>
+        <a href="/praexam"><button class="btn btn-dark" >Explore Pratice Tests</button></a>
+    </div>
+    <div class="third-sub-section">
+        <img src="/images/Multi-device targeting-pana.png" height="500px" alt="image">
+    </div>
+</div>
+
+
+
+
+

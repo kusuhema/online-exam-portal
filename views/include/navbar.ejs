@@ -1,0 +1,91 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans',sans-serif;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  li {
+    list-style: none;
+  }
+  .an {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+  }
+
+  .an:hover {
+    color : orange;
+  }
+
+  header {
+    position: sticky;  /* Make the header sticky */
+    top: 0;            /* Stick to the top of the viewport */
+    background-color: #ffffff; /* Add a background color */
+    z-index: 100;      /* Set a z-index to ensure it appears above other elements */
+    width: 100%;       /* Make it full-width */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for visual separation */
+  }
+</style>
+
+<body>
+  <header>
+    <% const admin = process.env.ADMIN_USERNAME %>
+    <div class="navbar">
+      <div class="logo"><a href="#">Online</a></div>
+      <ul class="links">
+        <li><a class="an" href="/home">Home</a></li>
+        <li><a class="an" href="/about">About</a></li>
+        <li><a class="an" href="/dashboard/:id">dashboard</a></li>
+        <li><a class="an" href="/allExams">Tests</a></li>
+        <% if(currUser && currUser.username === admin) { %>
+        <li><a  class="an" href="/showExamDetails">Admin</a></li>
+        <li><a class="an" href="/student/:id/record">records</a></li>
+        <li><a class="an" href="/approveExam">Approve Requests</a></li>
+        <%} %>
+        
+      </ul>
+      <% if (currUser) { %>
+        <a href="/logout" class="action_btn"><b>logout</b></a>
+      <% } else if(!currUser) { %>
+        <a href="/login" class="action_btn">Get Started</a>
+      <% } %>
+
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+ 
+    <div class="dropdown_menu ">
+      <li><a class="an" href="#">Home</a></li>
+      <li><a class="an" href="#">About</a></li>
+      <li><a class="an" href="#">Services</a></li>
+      <li><a class="an" href="#">Content</a></li>
+
+      <% if (currUser) { %>
+        <a href="/logout" class="action_btn"><b>logout</b></a>
+      <% } else if(!currUser) { %>
+        <a href="/signup" class="action_btn">Get Started</a>
+      <% } %>
+
+    </div>  
+  </header>
+    
+
+  <script>
+    const togglebtn = document.querySelector('.toggle_btn');
+    const togglebtnIcon = document.querySelector('.toggle_btn i');
+    const dropdownmenu = document.querySelector('.dropdown_menu');
+
+    togglebtn.onclick = function () {
+      dropdownmenu.classList.toggle('open');
+      const isOpen = dropdownmenu.classList.contains('open');
+      togglebtnIcon.classList.toggle('fa-xmark', isOpen);
+      togglebtnIcon.classList.toggle('fa-bars', !isOpen);
+    };
+  </script>
+</body>
+ 

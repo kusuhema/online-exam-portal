@@ -1,0 +1,146 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<style>
+     .contsin {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        border-bottom: 0.5px dashed black;
+
+    }
+    #font {
+        font-weight: 600;
+    } 
+    .created-exam {
+        border: 1px solid #eee;
+        box-shadow: 5px 5px 5px  #eee;
+        width: 30%;
+        margin:1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .top-section {
+        display: flex;
+        justify-content: space-between;
+    }
+    .created-exam-sub{
+        width: 90%;
+        margin: 10px;
+    }
+    .created-exam-sub1 {
+        
+        margin: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .exam-start-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-right: 2rem ;
+    }
+    
+    #eex {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    #ees {
+        
+        padding: 3px 16px 3px 16px;
+        border-radius: 16px;
+        font-weight: 600;
+        color: white;
+    }
+    
+
+</style>
+
+<div class="container container-max">
+        <div class="dashboard-div-1">
+            <div class="dashboard-sub-1">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="dashboard-sub-2">
+                <p id="db-Username"><%= username %></p>
+                <p id="db-email"><%= email %></p>
+                <p id="db-userid"><%= userid %></p>
+            </div>
+        </div>
+        <div class="container contsin">
+            <h2 id=font>Enrolled Exams</h2>
+                <div class="contsin">
+                    <% for(enrolled of enroll.enrolled) { %>
+                        <div class="created-exam">
+                            <div class="created-exam-sub">
+                                <div class="top-section mb-4">
+                                    <li id="eex"><%= enrolled.examname %></li>
+                                    <% if(enrolled.status === "approved") { %>
+                                        <li id="ees" style="background-color: green;"><i class="fa-regular fa-circle-check" style="padding-right: 10px;"></i><%= enrolled.status %></li> 
+                                    <%}%>   
+                                    <% if(enrolled.status === "rejected") { %>
+                                        <p id="ees" style="background-color: red;"> 
+                                            <i class="fa-solid fa-circle-exclamation" style="padding-right: 5px;"></i>
+                                            <%= enrolled.status %>
+                                        </p> 
+                                    <%}%>    
+                                    <% if(enrolled.status === "pending") { %>
+                                        <li id="ees" style="background-color:#FFA500;"><i class="fa-solid fa-clock" style="padding-right: 5px;"></i><%= enrolled.status %></li> 
+                                    <%}%>                             
+                                </div>
+                                <div class="row">
+                                    <div class=" exam-start-button">
+                                        <% if(enrolled.status === "approved") { %>
+                                            <a href="/StudentExam/<%= enrolled.examId %>/instructions"><button class="btn btn-outline-dark">Start</button></a> 
+                                        <%}%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>    
+        </div>   
+        <div class="dashboard-div-2 mt-4">
+            <h2 style="font-weight: 600;">Test Results</h2>
+            <div class="exam-section mt-2">
+                <div class="container text-center ">
+                    <div class="row">
+                        <div class="col border exam-section-columns">
+                            <strong>Exam Name</strong>
+                        </div>
+                        <div class="col border exam-section-column">
+                            <strong>Date</strong>
+                        </div>
+                        <div class="col border exam-section-columns">
+                            <strong>Score</strong>
+                        </div>
+                        <div class="col border exam-section-columns">
+                            <strong>Pass/Fail</strong>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="container text-center ">
+                <% for(answer of reports.records){ %>
+                    <div class="row">
+                        <div class="col border exam-section-column">
+                            <%= answer.Exam %>
+                        </div> 
+                        <div class="col border exam-section-column">
+                            <%= answer.created_at.toLocaleDateString()%>
+                        </div> 
+                        <div class="col border exam-section-column">
+                            <%= answer.Score%>
+                        </div>   
+                        <div class="col border exam-section-column">
+                            <%= answer.vedrict%>
+                        </div>  
+                    </div>
+                <% } %>
+            </div>            
+        </div>
+ 
+</div>

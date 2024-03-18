@@ -1,0 +1,42 @@
+<% layout ("/layouts/boilerplate.ejs") %>
+
+<div class="container">
+    <h2>Add Question</h2>
+</div>
+<div class="container mb-6 admin-exam">
+    <form action="/addQuestions/<%= exam._id %>" method="POST">
+        <div>
+            <h3>Question :</h3>
+            <textarea name="question" id="question" cols="100" rows="5" id="question" name="question"></textarea>
+        </div>
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="option1" class="form-label">option1 :</label>
+                <input type="text" class="form-control" id="option1" name="options[]" style="border: 1px solid #555;" required>
+            </div>
+            <div class="mb-3 col">
+                <label for="option2" class="form-label">option2 :</label>
+                <input type="text" class="form-control" id="option2" name="options[]" style="border: 1px solid #555;" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="option3" class="form-label">option3 :</label>
+                <input type="text" class="form-control" id="option3" name="options[]" style="border: 1px solid #555;" required>
+            </div>
+            <div class="mb-3 col">
+                <label for="option4" class="form-label">option4 :</label>
+                <input type="text" class="form-control" id="option4" name="options[]" style="border: 1px solid #555;" required>
+            </div>
+        </div>
+        
+        <div class="mb-3 col">
+            <label for="correct" class="form-label">correct :</label>
+            <input type="number" class="form-control" id="correct" name="correct"  min="1" max="4" style="border: 1px solid #555;" required>
+        </div>
+
+        
+        <button class="btn btn-success">save</button>
+
+    </form>
+</div>

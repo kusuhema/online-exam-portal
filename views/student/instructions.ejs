@@ -1,0 +1,42 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<style>
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #inst {
+        font-weight: 600;
+    }
+
+    .wel h1{
+        text-decoration: underline;
+    }
+</style>
+
+<div class="container mt-3">
+    <div class="container text-center wel">
+        <h1>Welcome to the Exam Portal</h1>
+    </div>
+    <div class="mt-3">
+        <p id="inst">Before you begin, please read the following instructions carefully:</p>
+        <ol>
+            <li><strong>1.</strong>  This exam consists of multiple-choice questions. Each question will have four options.</li>
+            <li><strong>2.</strong>  A timer will be displayed on the screen throughout the exam session. Please keep an eye on the timer and manage your time effectively.</li>
+            <li><strong>3.</strong>  Please note that if the timer runs out before you complete the exam, your answers will be submitted automatically. Manage your time wisely to ensure all questions are answered.</li>
+            <li><strong>4.</strong>  To answer a question, click on the option you believe is correct. Only one option can be selected per question.</li>
+            <li><strong>5.</strong>  You will earn points for each correct answer. There is no negative marking for incorrect answers. Questions left unanswered will not be scored.</li>
+            <li><strong>6.</strong>  After submitting your answers, you will receive immediate feedback. Correct answers will be highlighted in green, incorrect answers in red, and skipped questions in orange.</li>
+            <li><strong>7.</strong>  You will have the opportunity to review your answers before final submission. Use this time to double-check your responses.</li>
+            <li><strong>8.</strong>  If you encounter any technical issues during the exam, please notify the exam administrator immediately for assistance.</li>
+            <li><strong>9.</strong>  Maintain academic integrity throughout the exam. Do not engage in any form of cheating or misconduct. Violations will result in penalties as per the exam regulations.</li>
+            <li><strong>10.</strong> Once you are ready, click the <span class="fw-bold">"Start Exam"</span> button to begin. <span class="fw-bold">Best of luck!</span> </li>
+        </ol>
+        <div class="button mt-5">
+            <a href="/StudentExam/<%= exam._id%>/exam"><button class="btn btn-success">Start Exam</button></a>
+        </div>
+    </div>
+        
+    </div>
+   

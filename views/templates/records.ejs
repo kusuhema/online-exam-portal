@@ -1,0 +1,123 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<style>
+    
+    .filter-text {
+       border-bottom: 3px solid #eee;
+    }
+
+    .filter-form {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-left: 2rem;
+        gap: 10px;
+    }
+
+    .exname {
+        flex: 1 0 8rem;
+    }
+
+    .fldate {
+        flex: 1 0 8rem;
+    }
+
+    .but {
+        flex : 1 0 8rem
+    }
+
+    .filter-examName label,
+    .filter-Date label {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-right: 1rem;
+    }
+</style>
+
+<div class="container exam-section mt-3 mb-3">
+    <div class="filter-text">
+        <h1>Students Results</h1>
+    </div>
+   
+    <div class="filter mt-5">
+        <form action="/filter-records" method="post" class="mb-3 filter-form">
+            <div class="row">
+                <div class="col filter-examName">
+                    <label for="examName">Exam Name:</label>
+                    <input type="text" name="examName" id="examName" placeholder="Enter the ExamName" class="exname" required>
+                </div>
+                <div class="col filter-Date">
+                    <label for="filterDate">Date:</label>
+                    <input type="date" name="filterDate" id="filterDate" class="fldate" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary but">Filter</button>
+                </div>
+            </div>
+        </form>
+    
+    </div>
+    
+    <div class="container text-center ">
+        <div class="row">
+            <div class="col border exam-section-columns">
+                <strong>Exam Name</strong>
+            </div>
+            <div class="col border exam-section-column">
+                <strong>UserName</strong>
+            </div>
+            <div class="col border exam-section-columns">
+                <strong>Date</strong>
+            </div>
+            <div class="col border exam-section-columns">
+                <strong>time</strong>
+            </div>
+            <div class="col border exam-section-columns">
+                <strong>Total Marks</strong>
+            </div>
+            <div class="col border exam-section-columns">
+                <strong>Passing Marks</strong>
+            </div>
+            <div class="col border exam-section-columns">
+                <strong>Obtained Marks</strong>
+            </div>
+            <div class="col border exam-section-columns">
+                <strong>Pass/Fail</strong>
+            </div>
+    
+        </div>
+    </div>    
+    <div class="container text-center ">
+        <% for(answer of record){ %>
+            <div class="row">
+                <div class="col border exam-section-column">
+                    <%= answer.Exam %>
+                </div> 
+                <div class="col border exam-section-column">
+                    <%= answer.userId %>
+                </div> 
+                <div class="col border exam-section-column">
+                    <%= answer.created_at.toLocaleDateString()%>
+                </div>
+                <div class="col border exam-section-column">
+                    <% const createdDate = new Date(answer.created_at); %>
+                    <% const timeZone = answer.timeZone || "UTC"; %>
+                    <%= createdDate.toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" }) %>
+                </div>
+                <div class="col border exam-section-column">
+                    <%= answer.totalMarks %>
+                </div>
+                <div class="col border exam-section-column">
+                    <%= answer.passingMarks %>
+                </div>
+                <div class="col border exam-section-column">
+                    <%= answer.Score %>
+                </div>
+                <div class="col border exam-section-columns">
+                    <%= answer.vedrict %>
+                </div>
+              </div>
+       <% } %>
+    </div>
+</div>

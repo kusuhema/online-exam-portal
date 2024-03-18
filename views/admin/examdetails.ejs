@@ -1,0 +1,48 @@
+<% layout("/layouts/boilerplate.ejs") %>  
+
+<div class="container exam-section-top">
+  <div>
+      <p id="addExam-font">Add Exam</p>
+  </div>
+</div> 
+<div class="container mb-6 admin-exam">
+    <form action="/exam" method="post" class="needs-validation" novalidate>
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="examName" class="form-label font">Exam Name :</label>
+          <input type="text" class="form-control" id="examName" name="examName" style="border: 1px solid #555;" required>
+        </div>
+        <div class="mb-3 col">
+          <label for="duration" class="form-label font">Duration :</label>
+          <input type="number" class="form-control" id="duration" name="duration" style="border: 1px solid #555;" required>
+        </div>
+        <div class="mb-3 col">
+          <label for="category" class="form-label font">Category :</label>
+          <select class="form-select" id="category" name="category" style="border: 1px solid #555;" required>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advance">Advance</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="totalMarks" class="form-label font">TotalMarks :</label>
+          <input type="number" class="form-control" id="totalMarks" name="totalMarks" style="border: 1px solid #555;" required>
+        </div>
+        <div class="mb-3 col">
+          <label for="passingMarks" class="form-label font">PassingMarks:</label>
+          <input type="number" class="form-control" id="passingMarks" name="passingMarks" style="border: 1px solid #555;" required>
+        </div>
+        <div class="mb-3 col">
+          <input type="hidden">
+        </div>
+      </div> 
+      <div class="save-btn"> 
+        <button class="btn btn-outline-success">Save</button>
+        <a href="/showExamDetails"><button type="button" class="btn btn-outline-dark">Cancel</button></a>
+      </div> 
+      
+    </form>
+   
+</div>

@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="container mb-6 admin-exam">
+    <form action="/editQuestion/<%= exam._id %>/edit/<%= questions._id %>?_method=PUT" method="POST">
+        <div>
+            <h3>Question :</h3>
+            <textarea name="question" id="question" cols="100" rows="5"><%= questions.question %></textarea>
+        </div>
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="option1" class="form-label">option1 :</label>
+                <input type="text" class="form-control" id="option1" name="options[]" value="<%= questions.options[0] %>" style="border: 1px solid #555; font-size: 1rem;" required>
+            </div>
+            <div class="mb-3 col">
+                <label for="option2" class="form-label">option2 :</label>
+                <input type="text" class="form-control" id="option2" name="options[]" value="<%= questions.options[1] %>" style="border: 1px solid #555; font-size: 1rem;" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="option3" class="form-label">option3 :</label>
+                <input type="text" class="form-control" id="option3" name="options[]" value="<%= questions.options[2] %>" style="border: 1px solid #555; font-size: 1rem;" required>
+            </div>
+            <div class="mb-3 col">
+                <label for="option4" class="form-label">option4 :</label>
+                <input type="text" class="form-control" id="option4" name="options[]" value="<%= questions.options[3] %>" style="border: 1px solid #555; font-size: 1rem;" required>
+            </div>
+        </div>
+       
+        <div class="mb-3">
+            <label for="correct" class="form-label">correct-Option :</label>
+            <input type="number" class="form-control" id="correct" name="correct" value="<%= questions.correct %>" placeholder="the correct-option must be in between 1 to 4" style="border: 1px solid #555; font-size: 1rem;" min="1" max="4" required>
+        </div>
+        <button class="btn btn-success">save</button>
+    </form>
+</div>

@@ -1,0 +1,771 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Plus Jakarta Sans', sans-serif !important;
+  min-height: 100%;
+  position: relative;
+}
+
+.main-content {
+  padding-bottom: 100px; /* Adjust this value based on your footer's height */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px; /* Adjust this value based on your footer's height */
+  background-color: #ebebeb;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* user login and signup pages */
+/* login page */
+.main_login {
+  background-color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  border-radius: 15px;
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+
+.main_login1 {
+  background-color: rgb(215, 236, 255);
+  width: 50%;
+  height: 560px;
+  border-radius: 13px 0 0 13px;
+}
+
+.main_login2 {
+  background-color: whitesmoke;
+  width: 50%;
+  height: 560px;
+  border-radius: 0 13px 13px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_login1 img {
+  height: 500px;
+  width: 600px;
+}
+.main_login1 .login {
+  background-color: #fff;
+  width: 90%;
+  height: 90%;
+  max-width: 500px;
+  padding: 10px;
+  
+
+}
+.login-password,
+.login-username{
+  position: relative;
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  
+}
+
+.login-password i,
+.login-username i{
+  position: absolute;
+  left: 10px; /* Adjust the left position as needed */
+  color: #000; /* Icon color */
+}
+
+.login-password input,
+.login-username input,
+.input-email input {
+  padding-left: 30px; /* Ensure enough space for the icon */
+}
+
+.login h2 {
+  font-size: 2rem;
+  color: rgba(17,40,148,255);
+  margin-bottom: 10px;
+  font-weight: 750;
+}
+
+.login #detail {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.app {
+  margin-top: 2rem;
+}
+
+.app button {
+  background-color: rgba(26,66,188,255);
+  color: #fff;
+  font-weight: 600;
+  height: 2.5rem;
+  width: 25rem;
+  border-radius: 20px;
+}
+
+.app button:hover {
+  scale: 1.05;
+  background-color: rgba(26,66,188,255);
+  border: none;
+  color: #fff;
+}
+
+.app button:active {
+  scale : 0.95
+}
+
+.login_sign {
+  margin-top: 3rem;
+  padding-left: 3.5rem;
+}
+
+.login_sign a {
+  color: blue;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.login_sign a:hover {
+  color: rgba(26,66,188,255);
+}
+
+/* navbar */
+.navbar {
+  background-color: #fff;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .links {
+  padding-top: 11px;
+  display: flex;
+  gap: 2rem;
+  margin-right: 3rem ;
+  font-weight: 600;
+}
+
+.navbar  .toggle_btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.action_btn {
+  background-color: #fc983b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.action_btn:hover {
+  scale: 1.05;
+  color: #fff;
+}
+
+.action_btn:active {
+  scale : 0.95
+}
+
+/* drop down menu*/
+.dropdown_menu {
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  width: 300px;
+  background: rgba(225, 225, 225, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dropdown_menu.open {
+  height: 240px;
+}
+
+.dropdown_menu li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width : 1023px) {
+  .navbar .links {
+    display: none;
+  }
+  .action_btn {
+    display: none;
+  }
+
+  .navbar .toggle_btn {
+    display: block;
+  }
+
+  .dropdown_menu.open {
+    display: block;
+  }
+}
+
+/* footer */
+
+.f-info-links a {
+  text-decoration: none;
+  color :#222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+.f-info-social,.f-info-links,.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-social i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+
+.exam-section-top {
+  border-bottom: 2px solid #eee ;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+}
+
+#exam-section-font {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* add exam */
+
+#addExam {
+  background-color: #fc983b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+#addExam:hover {
+  scale: 1.05;
+  color: #fff;
+}
+#addExam:active {
+  scale : 0.95
+}
+
+#addExam-font {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.font {
+  font-weight: 600;
+}
+
+.save-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-btn button {
+  margin-left: 10px;
+}
+
+/* show exam page */
+.exam-section-columns {
+  padding: 10px;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.exam-section-column {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px;
+  max-width: 150px; /* Adjust the value as needed */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+#ed-icons {
+  font-size: 1.2rem ;
+}
+
+#ed-icons button {
+  padding-left: 10px;
+}
+
+#ed-icons i {
+  padding-right: 10px;
+}
+
+.slash {
+  font-size: 1.5rem;
+}
+
+/* exam EXAM-QUESTION page */
+.EX-QU-btn {
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.EX-QU-btn button {
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.EX-QU-btn button:hover,
+.EX-QU-btn button:active {
+  color : #0010e9;
+  border-bottom : 2px solid #0010e9;
+}
+
+.exam-section-ex{
+  border-bottom: 2px solid #c3bfbf ;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+/* homePage */
+
+
+.second-section {
+  margin: 1.5rem;
+  display: flex;
+  align-items: center;
+  
+}
+
+.second-sub-section {
+  margin: 1rem;
+  width: 30%;
+  text-align: center;
+}
+
+.second-sub-section img{
+  margin-bottom: 1rem;
+}
+.second-sub-section i {
+  font-size: 150px;
+  margin-bottom: 1rem;
+}
+
+.second-sub-section h3 {
+  margin-bottom: 1rem;
+}
+
+.second-sub-section p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.second-sub-section span {
+  font-size: 1.2rem;
+  color: #fc983b;
+}
+
+.second-section-heading {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container-img {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+.first-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-text {
+  width: 90%;
+}
+
+.image-text button {
+  margin-top: 2rem;
+}
+
+#homepage-font {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+#welcome-font {
+  margin-top: 1.2rem;
+  font-weight: 600;
+}
+
+.third-section {
+  display: flex;
+  border-bottom: 3ps solid #eee;
+}
+
+.third-sub-section{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.third-sub-section p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.third-sub-section a {
+  margin-right: 25rem;
+}
+
+/* question block */
+.question-block {
+  background-color: #fff;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 0;
+  border-radius: 10px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.ques-buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+/* exam  */
+/* style.css */
+
+/* Container styling */
+.container-max {
+  max-width: 800px;
+  margin: 1rem 0 1rem 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Question styling */
+.questions-mar h5 {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.check-class {
+  margin-left: 1rem;
+}
+
+/* Radio button styling */
+.form-check-input {
+  margin-right: 10px;
+}
+
+/* Button styling */
+
+.exam-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #eee;
+  padding-bottom: 10px;
+}
+.exam-top-section li {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.timer {
+  display: flex;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.timer {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0 10px 0 10px;
+}
+
+.quest-submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+  width: 90%;
+}
+
+.container-max-main {
+  margin: 1.5rem;
+  padding: 0 10px 0 10px;
+}
+
+/* student dashboard */
+
+
+.dashboard-div-1 {
+  margin: 1.5rem;
+  width: 90%;
+  display: flex;
+  border-bottom: 1px solid #898989;
+}
+
+.dashboard-div-2 {
+  margin: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.dashboard-sub-1 {
+  margin: 1rem;
+  border-radius: 50% ;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-sub-1 i {
+  font-size: 8rem;
+  margin: 2rem;
+}
+
+.dashboard-sub-2 {
+  margin: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#db-Username {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+#db-email {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#db-userid {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #898989;
+}
+
+/* pratice session */
+
+.pratice-cont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.card-txt{
+  width: 350px;
+  height: 280px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  gap: 10px;
+  background-color: #FAD11D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-txt h1{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.content {
+  position: absolute;
+  bottom: -100px;
+  left: 10px;
+  color: black;
+  transition: all 0.3s;
+}
+
+.content h3 {
+  font-weight: 600;
+}
+
+.card-txt:hover .content {
+  bottom: 10px;
+  transition: all 0.8s;
+}
+
+.card-txt:hover  {
+  filter: brightness(0.8);
+}
+
+.pra-heading {
+  border-bottom: 3px solid #eee;
+}
+
+.pra-heading h1 {
+  font-weight: 600;
+}
+
+.request {
+  padding: 10px;
+  font-weight: 600;
+}
+
+.request-student {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-weight: 600;
+
+}
+
+.approve {
+  margin-right: 10px;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.isapproved {
+  font-size: 1.2rem;
+  color: green;
+  font-weight: 600;
+  padding: 5px;
+  margin: 0;
+}
+
+.reject {
+  margin-left: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.isrejected {
+  font-size: 1.2rem;
+  color: red;
+  font-weight: 600;
+  padding: 5px;
+  margin: 0;
+}
+
+/* about */
+.about-top-section {
+  width: 100%;
+  height: 5rem;
+  background-color: #fc983b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-second-section {
+  border: 1px solid black;
+  height: 250px;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.about-second-section-sub-1 {
+  width: 30%;
+  height: 200px;
+  border: 1px solid red;
+}
+
+.about-second-section-sub-2 {
+  width: 60%;
+  height: 200px;
+  border: 1px solid green;
+}

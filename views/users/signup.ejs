@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerplate.ejs") %>  
+ 
+
+
+<div class="main_login">
+  <div class="main_login1">
+      <img src="/images/Sign up-rafiki.png" alt="">
+  </div>
+  <div class="main_login2">
+      <div class="login">
+          <h2>Signup</h2>
+          <p id="detail">Hey enter your details to create your account</p>
+          <form action="/signup" method="post" class="needs-validation app" novalidate >
+              <div class="mb-3 login-username">
+              <label for="username" class="form-label"> </label>
+              <input name="username" type="text" placeholder="Enter your username" class="form-control" id="username" required>
+              </div>
+              <div class="mb-3 signup-email input-email">
+                <!-- <label for="email" class="form-label"></label> -->
+                <input name="email" type="email" placeholder="Enter your email address" class="form-control" id="email" required>
+              </div>
+              <div class="mb-3 login-password">
+                  <label for="password" class="form-label"></label>
+                  <input name="password" type="password" placeholder="Enter your Password" class="form-control" id="password" >
+              </div>
+              <button class="login_btn">sign up</button>
+          </form>
+
+          <p class="login_sign">Already have an account? <a href="/login">Sign in</a></p> 
+      </div>
+      
+      
+  </div>
+</div>
+
+
+<!-- <body>
+    <form action="/signup" method="post" class="needs-validation app" novalidate >
+        <h2>Signup</h2>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input name="username" type="text" class="form-control" id="username">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" id="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="password">
+        </div>
+        <button class="btn btn-success">signup</button>
+      </form>
+</body>
+  -->

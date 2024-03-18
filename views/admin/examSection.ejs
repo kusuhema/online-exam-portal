@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate.ejs") %>  
+
+<div class="main-content">
+    <div class="container exam-section-top">
+        <div>
+            <p id="exam-section-font">Exams</p>
+        </div>
+        <div>
+            <a href="/addExamDetails">
+                <button id="addExam">
+                    +Add Exam
+                 </button>
+            </a>
+        </div>
+    </div>
+    <div class="exam-section">
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col border exam-section-columns">
+                    <strong>Exam Name</strong>
+                </div>
+                <div class="col border exam-section-column">
+                    <strong>Date</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Duration</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Category</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Total Marks</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Passing Marks</strong>
+                </div>
+                <div class="col border exam-section-columns">
+                    <strong>Action</strong>
+                </div>
+        
+            </div>
+        </div>    
+        <div class="container text-center ">
+            <% for(examDetail of examDetails){ %>
+                <div class="row">
+                    <div class="col border exam-section-column">
+                        <%= examDetail.examName %>
+                    </div> 
+                    <div class="col border exam-section-column">
+                        <%= examDetail.created_at.toLocaleDateString() %>
+                    </div> 
+                    <div class="col border exam-section-column">
+                        <%= examDetail.duration %>
+                    </div>
+                    <div class="col border exam-section-column">
+                        <%= examDetail.category %>
+                    </div>
+                    <div class="col border exam-section-column">
+                        <%= examDetail.totalMarks %>
+                    </div>
+                    <div class="col border exam-section-column">
+                        <%= examDetail.passingMarks %>
+                    </div>
+                    <div class="col border exam-section-column" id="ed-icons">
+                       
+                        <a href="/editform/<%= examDetail._id %>/edit"><button><i class="fa-solid fa-pen-to-square"></i> </button></a>
+                          |
+                        <form method="POST" action="/Exam/<%= examDetail._id %>?_method=DELETE" >
+                           <button><i class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                  </div>
+           <% } %>
+        
+        </div>
+    </div>
+    
+</div>

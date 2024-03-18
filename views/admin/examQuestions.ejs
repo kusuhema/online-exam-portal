@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="container">
+    <form action="/addQuestion" method="POST">
+        <div class="mb-6">
+            <label for="question" class="form-label">Question:</label>
+            <input type="text" class="form-control" id="question" name="question" required>
+        </div>
+        <div class="mb-6">
+            <label for="option1" class="form-label">option 1 :</label>
+            <input type="text" class="form-control" id="option1" name="option[]" required>
+        </div>
+        <div class="mb-6">
+            <label for="option2" class="form-label">option 2 :</label>
+            <input type="text" class="form-control" id="option2" name="option[]" required>
+        </div>
+        <div class="mb-6">
+            <label for="option3" class="form-label">option 3 : </label>
+            <input type="text" class="form-control" id="option3" name="option[]" required>
+        </div>
+        <div class="mb-6">
+            <label for="option4" class="form-label">option 4 :</label>
+            <input type="text" class="form-control" id="option4" name="option[]" required>
+        </div>
+        <div class="mb-6">
+            <label for="correct" class="form-label">correct Option (1,2,3,4):</label>
+            <input type="text" class="form-control" id="correct" name="correct"  min="1" max="4" required>
+        </div>
+        <% if (examDetail && examDetail.id) { %>
+            <input type="hidden" name="examId" value="<%= examDetail.id %>">
+        <% } %>
+        
+     
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+

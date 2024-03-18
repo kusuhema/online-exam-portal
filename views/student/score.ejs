@@ -1,0 +1,147 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<style>
+    .score-main {
+        background-color: #fff;
+        width: 90%;
+        max-width: 600px;
+        margin: 10px auto 2rem;
+        border-radius: 10px;
+        padding: 20px;
+        border: 5px solid #eee;
+    }
+    .score-main1 {
+        border-bottom: 1px solid #eee;
+    }
+
+    .score-main2 {
+        margin-top: 1rem;
+        padding: 10px;
+    }
+
+    #score {
+        font-size: 1.1rem;
+        color: #454242;
+        margin:0;
+    }
+
+    #date {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .total-score {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+    .total-score p {
+        margin: 0;
+    }
+    #tscore {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    #tsc {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    #tscs {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .correct {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+    }
+    .hrbtn {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    #examName {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .ttq {
+        background-color: rgb(72, 72, 248);
+    }
+    .tta {
+        background-color: green;
+    }
+    .ttb {
+        background-color: red;
+    }
+    .ttc {
+        background-color: #FFA500;
+    }
+
+
+</style>
+
+<div class="container">
+    <div class="score-main">
+        <div class="score-main1">
+            <p id="date">Test Date : <%= date %></p>
+            <p id="examName">Exam : <%= examname %></p>
+            <p id="score"><%= username  %></p>
+            <p id="score"><%= userid %></p>
+        </div>
+        <div class="score-main2">
+            <div class="total score1">
+                <div class="total-score">
+                    <p id="tscore">Total Score</p>
+                    <p id="tsc"><%= score %></p>
+                    <p id="tscs">Out of <%= totalQuestions %></p>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="correct col ttq">
+                     <p>Total Questions</p>
+                    <%= totalQuestions %>
+                 </div>
+                <div class="correct col tta">
+                     <p> Correct</p>
+                     <%= score %>
+                </div>
+            </div>
+            <div class="row ">
+               <div class="correct col ttb">
+                    <p>Incorrect</p>
+                    <%= incorrect %>
+                </div>
+                <div class="correct col ttc">
+                    <p>Skipped</p>
+                    <%= skipped %>
+                </div>
+            </div>
+        </div>
+        <div id="testReport" class="container container-max" style="display: none;">
+            <h2>Test Report</h2>
+            <% for (let i = 0; i < totalQuestions; i++) { %>
+                <p style="font-weight: 600;">Question <%= i + 1 %>: <%= actualQuestions[i].actualQuestion %></p>
+                <p><span style="font-weight: 600;">Correct Option:</span> <%= actualQuestions[i].option %></p>
+                <% let backgroundColor = selectedOptions[i].selectOpt ? 'green' : 'orange'; %>
+                    <% if (selectedOptions[i].selectOpt && selectedOptions[i].selectOpt !== actualQuestions[i].option) { backgroundColor = 'red'; } %>
+                    <p style="background-color: <%= backgroundColor %> ; color: white;"><span style="font-weight: 600;">Selected Option:</span> <%= selectedOptions[i].selectOpt || 'Skipped' %></p>
+                    <hr>
+            <% } %>
+        </div>
+        <div class="hrbtn">
+            <button id="showTestReport">Show Test Report</button>
+            <a href="/home"><button class="btn btn-outline-dark">Home</button></a>
+        </div>
+    </div>
+</div>

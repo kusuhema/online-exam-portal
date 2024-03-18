@@ -1,0 +1,86 @@
+<% layout("layouts/boilerplate.ejs") %>
+<style>
+    .contsin {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+    #font {
+        font-weight: 600;
+    } 
+    .created-exam {
+        border: 1px solid #eee;
+        box-shadow: 5px 5px 5px  #eee;
+        width: 30%;
+        margin:1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .created-exam-sub{
+        width: 90%;
+        margin: 10px;
+    }
+    .created-exam-sub1 {
+        width: 90%;
+        margin: 8px;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .created-exam-sub2 {
+        width: 90%;
+        margin: 8px;
+        font-size: 1rem;
+        color: #9EA0A3;
+        font-weight: 600;
+    }
+    .created-exam-sub3 {
+        width: 40%;
+        margin: 8px;
+    }
+    .created-exam-sub2 i {
+        padding-right: 5px;
+    }
+    .created-exam-sub3 li {
+        font-size: 1rem;
+        font-weight: 600;
+        background-color: #D4e6fe;
+        color: #3A67DE ;
+        text-align: center;
+        border-radius: 10px;
+    }
+    .exam-start-button {
+        padding-left: 8rem ;
+    }
+
+</style>
+
+<div class="container contsin">
+    <h2 id=font>Exams</h2>
+        <div class="contsin">
+            <% for(del of exam) { %>
+                <div class="created-exam">
+                    <div class="created-exam-sub">
+                        <div class="created-exam-sub1">
+                            <%= del.examName %>
+                        </div>
+                        <div class="created-exam-sub2">
+                            <li><i class="fa-solid fa-calendar"></i> <%= del.created_at.toLocaleDateString() %></li>
+                        </div>
+                        <div class="row">
+                            <div class="created-exam-sub3 ">
+                                <li><%= del.category  %></li> 
+                            </div>
+                            <div class=" exam-start-button col">
+                                <form action="/request/<%= currUser._id %>/exam/<%= del._id %>" method="POST">
+                                    <button class="btn btn-success">Enroll</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>    
+</div>   
