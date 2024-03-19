@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Check if time is up
         if (remainingTime <= 0) {
+            // Clear the interval to stop the timer
+            clearInterval(timerInterval);
+    
             // Auto-submit the form when time is up
             document.getElementById('examForm').submit();
         }
