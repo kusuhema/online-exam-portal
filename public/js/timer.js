@@ -29,5 +29,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Update the timer every second
-    setInterval(updateTimer, 1000);
+    const timerInterval = setInterval(updateTimer, 1000);
 });
