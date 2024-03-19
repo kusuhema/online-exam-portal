@@ -55,8 +55,8 @@
         if (remainingTime <= 0) {
             // Clear the interval to stop the timer
             clearInterval(timerInterval);
+            console.log("Time is up! Submitting form...");
 
-            
 
             // Auto-submit the form when time is up
             document.getElementById('examForm').submit();
