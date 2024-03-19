@@ -95,7 +95,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use("/",registerrouter);
 
 app.get("/",(req,res)=>{
-    res.send("this is root")
+    res.redirect("/home")
 });
 
 app.listen(8080,()=>{
