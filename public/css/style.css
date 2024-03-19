@@ -739,6 +739,14 @@ button {
   margin: 0;
 }
 
+.pending {
+  font-size: 1.2rem;
+  color: #FAD11D;
+  font-weight: 600;
+  padding: 5px;
+  margin: 0;
+}
+
 /* about */
 .about-top-section {
   width: 100%;

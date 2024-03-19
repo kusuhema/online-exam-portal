@@ -185,22 +185,13 @@ module.exports.studentRequests = async(req,res)=>{
     res.render("admin/studentRequest.ejs",{exam})
 }
 
-module.exports.studentaccept = async(req,res)=>{
-    try {
-        const {id,studentid} = req.params;
-        const enrollment = await examEnrollment.findOne({_id : id},{studentId : studentid});
-        res.render("admin/acceptStudentRequest.ejs",enrollment)
-    } catch (error) {
-        console.error("Error : ",error);
-        return res.status(500).send("Internal Server Error")
-    }
-}
+
 
 exports.approveEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
         await examEnrollment.findByIdAndUpdate(id, { status: 'approved' });
-        return res.redirect(`/approveExam/${id}/student`);
+        return res.redirect(`/approveExam`);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).send("Internal Server Error");
@@ -211,7 +202,7 @@ exports.rejectEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
         await examEnrollment.findByIdAndUpdate(id, { status: 'rejected' });
-        res.redirect(`/approveExam/${id}/student`);
+        res.redirect(`/approveExam`);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).send("Internal Server Error");

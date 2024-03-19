@@ -10,6 +10,9 @@
             STUDENT
         </div>
         <div class="col border request">
+            Accept/Reject
+        </div>
+        <div class="col border request">
             STATUS
         </div>
     </div>
@@ -25,26 +28,24 @@
                     <%= enrollment.student %>
                 </div>
                 <div class="col border request-student">
-                    <% if(enrollment.status !== "approved" && enrollment.status !== "rejected" ) {%>
-                        <form action="/approveExam/<%= enrollment._id %>/student/<%= enrollment.studentId %>/accept/">
-                            <button type="submit" class="approve">Request</button>
-                        </form>
-                    <% } %>
-                    <!-- <% if(enrollment.status !== "approved" && enrollment.status !== "rejected" ) {%>
-                        <form action="/enrollment-requests/<%= enrollment._id %>/approve" method="POST">
-                            <button type="submit" class="approve">Approve</button>
-                        </form>
-                        <form action="/enrollment-requests/<%= enrollment._id %>/reject" method="POST">
-                            <button type="submit" class="reject">Reject</button>
-                        </form>
-                    <% } %> -->
+                    <form action="/enrollment-requests/<%= enrollment._id %>/approve" method="POST">
+                        <button type="submit" class="approve">Approve</button>
+                    </form>
+                    <form action="/enrollment-requests/<%= enrollment._id %>/reject" method="POST">
+                        <button type="submit" class="reject">Reject</button>
+                    </form>
+                </div>
+                <div class="col border request-student">
                     <% if(enrollment.status === "approved"){ %>
                         <p class="isapproved"><i class="fa-solid fa-circle-check" style="padding-right: 5px;"></i> Accepted</p>
                     <% } %>
                     <% if(enrollment.status === "rejected"){ %>
                         <p class="isrejected"><i class="fa-solid fa-circle-xmark" style="padding-right: 5px;"></i> Rejected</p>
                     <% } %>
-                </div>
+                    <% if(enrollment.status === "pending"){ %>
+                        <p class="pending"><i class="fa-solid fa-clock" style="padding-right: 5px;"></i> pending</p>
+                    <% } %>
+                </div>    
             </div>
         <% }; %>    
     <% }; %>

@@ -7,7 +7,7 @@ const {isLoggedin,checkEnrollment} = require("../middleware.js");
 const {registrationUser,signupuser,login, loginuser,logout,home,about} = require("../controllers/user/userreg.js");
 const {addExamDetails,exam,showExamDetails,deleteExam,editbyId,saveEditedExam} = require("../controllers/admin/examcon.js");
 const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQuestions,
-        deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment,studentaccept} = require("../controllers/admin/examcon.js");
+        deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment} = require("../controllers/admin/examcon.js");
 const {examInstructions,getQuestionFromExamID,submitAns,records,showExams,dashboard,filterRecords,requestEnrollment} = require("../controllers/Student/examQues.js");
 const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPraticeTest}= require("../controllers/pratice/pratice.js")
 
@@ -77,11 +77,11 @@ router.get("/approveExam",approveexam);
 
 router.get("/approveExam/:id/student",studentRequests);
 
-router.get("/approveExam/:id/student/:studentid/accept",studentaccept)
 
-router.post("/enrollment-requests/:id/approve/:examid",approveEnrollment)
 
-router.post("/enrollment-requests/:id/reject/:examid",rejectEnrollment)
+router.post("/enrollment-requests/:id/approve",approveEnrollment)
+
+router.post("/enrollment-requests/:id/reject",rejectEnrollment)
 
 
 //update status
