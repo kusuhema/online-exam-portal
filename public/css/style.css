@@ -449,7 +449,7 @@ button {
 .container-img {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   border: 1px solid #eee;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
