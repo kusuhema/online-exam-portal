@@ -74,6 +74,7 @@ module.exports.deleteExam = async(req,res)=>{
     try {
         await Exam.findByIdAndDelete(id);
         await examEnrollment.deleteMany({ examId: id });
+        await Questions.deleteMany({exam : id })
 
 
     } catch (error) {
