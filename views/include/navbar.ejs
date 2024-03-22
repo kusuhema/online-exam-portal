@@ -29,6 +29,22 @@
     width: 100%;       /* Make it full-width */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for visual separation */
   }
+
+  .username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3rem;
+  }
+
+  .username p {
+    margin: 0;
+    border: 1px solid black;
+    padding : 5px 10px 5px 10px;
+    font-weight: 600;
+    border-radius: 1rem;
+  }
+
 </style>
 
 <body>
@@ -39,7 +55,7 @@
       <ul class="links">
         <li><a class="an" href="/home">Home</a></li>
         <li><a class="an" href="/about">About</a></li>
-        <li><a class="an" href="/dashboard/:id">dashboard</a></li>
+        <li><a class="an" href="/contactus">contact us</a></li>
         <li><a class="an" href="/allExams">Tests</a></li>
         <% if(currUser && currUser.username === admin) { %>
         <li><a  class="an" href="/showExamDetails">Admin</a></li>
@@ -49,7 +65,9 @@
         
       </ul>
       <% if (currUser) { %>
-        <a href="/logout" class="action_btn"><b>logout</b></a>
+        <div class="username">
+          <a href="/dashboard/:id"><p><i class="fa-solid fa-user" style="padding-right: 5px;"></i> <%= currUser.username%></p></a>
+        </div>
       <% } else if(!currUser) { %>
         <a href="/login" class="action_btn">Get Started</a>
       <% } %>

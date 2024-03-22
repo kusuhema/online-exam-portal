@@ -4,7 +4,7 @@ const router = express.Router();
 //user authentication
 const passport = require("passport");
 const {isLoggedin,checkEnrollment} = require("../middleware.js");
-const {registrationUser,signupuser,login, loginuser,logout,home,about} = require("../controllers/user/userreg.js");
+const {registrationUser,signupuser,login, loginuser,logout,home,about,contactus} = require("../controllers/user/userreg.js");
 const {addExamDetails,exam,showExamDetails,deleteExam,editbyId,saveEditedExam} = require("../controllers/admin/examcon.js");
 const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQuestions,
         deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment} = require("../controllers/admin/examcon.js");
@@ -27,6 +27,8 @@ router.get("/logout",logout);
 router.get("/home",home);
 
 router.get("/about",about)
+
+router.get("/contactus",contactus)
 
 
 //admin page routes 

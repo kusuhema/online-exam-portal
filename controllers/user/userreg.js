@@ -45,3 +45,7 @@ module.exports.home = async(req,res)=>{
 module.exports.about = async(req,res)=>{
     res.render("templates/aboutpage.ejs");
 }
+
+module.exports.contactus = async(req,res)=>{
+    res.render("templates/contact.ejs")
+}
