@@ -56,21 +56,19 @@ module.exports.examInstructions = async(req,res)=>{
     }
 }
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
+// function shuffleArray(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+//     return array;
+// }
 
 module.exports.getQuestionFromExamID = async(req,res)=>{
     try {
         const {id} = req.params;
         const exam = await Exam.findById(id).populate("questions");
-
-        exam.questions = shuffleArray(exam.questions);
-       
+        // exam.questions = shuffleArray(exam.questions);
         res.render("student/displayQues.ejs",{exam,currentQuestionIndex : 0});
     }catch(error){
         console.error("Error : ", error);
@@ -98,6 +96,7 @@ module.exports.submitAns = async (req, res) => {
         const selectedOptions = [];
         const actualQuestions = [];
 
+       
         // Loop through each question ID in the array
         for (let i = 0; i < Answers.questions.length; i++) {
             // Find the corresponding question using the questionId
@@ -157,7 +156,6 @@ module.exports.submitAns = async (req, res) => {
         console.error("Error:", error);
         return res.status(500).send("Internal Server Error");
     }
-    
 };
 
 module.exports.records = async(req,res)=>{
@@ -197,7 +195,7 @@ module.exports.dashboard = async(req,res)=>{
         const userWithReports = await user.findById(userid).populate("records");
         const userWithEnrolledExams = await user.findById(userid).populate("enrolled");
 
-        // Filter enrolled exams to exclude those for which reports exist
+        //Filter enrolled exams to exclude those for which reports exist
         const filteredEnrolledExams = userWithEnrolledExams.enrolled.filter(EnrollmentRequest => {
             return !userWithReports.records.some(StudentPerformance => StudentPerformance.examid.equals(EnrollmentRequest.examId));
         });
@@ -206,6 +204,7 @@ module.exports.dashboard = async(req,res)=>{
             email,
             userid,
             reports: userWithReports,
+            // enroll :userWithEnrolledExams
             enroll: { enrolled: filteredEnrolledExams }
         });
     }catch(error){
