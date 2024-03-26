@@ -71,7 +71,7 @@ router.delete("/Exam/:id/delete/:questionId",deleteQuestionFromExam);
 
 //student enroll request
 
-router.post('/request/:userid/exam/:examid',checkEnrollment,requestEnrollment);
+router.post('/request/:userid/exam/:examid',requestEnrollment);
 
 //admin approve exam request
 

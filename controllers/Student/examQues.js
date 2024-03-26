@@ -196,16 +196,16 @@ module.exports.dashboard = async(req,res)=>{
         const userWithEnrolledExams = await user.findById(userid).populate("enrolled");
 
         //Filter enrolled exams to exclude those for which reports exist
-        const filteredEnrolledExams = userWithEnrolledExams.enrolled.filter(EnrollmentRequest => {
-            return !userWithReports.records.some(StudentPerformance => StudentPerformance.examid.equals(EnrollmentRequest.examId));
-        });
+        // const filteredEnrolledExams = userWithEnrolledExams.enrolled.filter(EnrollmentRequest => {
+        //     return !userWithReports.records.some(StudentPerformance => StudentPerformance.examid.equals(EnrollmentRequest.examId));
+        // });
         res.render("student/dashboard.ejs",{
             username,
             email,
             userid,
             reports: userWithReports,
-            // enroll :userWithEnrolledExams
-            enroll: { enrolled: filteredEnrolledExams }
+            enroll :userWithEnrolledExams
+            // enroll: { enrolled: filteredEnrolledExams }
         });
     }catch(error){
         console.error("Error : ",error);

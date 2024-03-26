@@ -17,7 +17,7 @@
                 <% for (let i = 0; i < exam.questions.length; i++) { %>
                     <h5><%=i + 1 %> . <%= exam.questions[i].question %></h5>
                     <% for (let j = 0; j < exam.questions[i].options.length; j++) { %>
-                        <input class="form-check-input check-class check" type="radio" name="selectedOption<%=i %>" style="border: 1px solid black;" id="flexRadioDefault<%= j + 1 %>" value="<%= j + 1 %>" >
+                        <input class="form-check-input check-class check" type="radio" name="selectedOption<%=i %>" style="border: 1px solid black;" id="flexRadioDefault<%= j + 1 %>" value="<%= j %>" >
                         <label class="form-check-label " for="selectedOption<%= i %>">
                             <%= exam.questions[i].options[j] %>
                         </label><br>
