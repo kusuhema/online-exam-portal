@@ -19,7 +19,6 @@ module.exports.checkEnrollment = async (req, res, next) => {
             req.flash("error","you have already regestered for this exam");
             return res.redirect("/allExams")
         }
-
         next(); // Continue to the next middleware
     } catch (error) {
         console.error("Error:", error);

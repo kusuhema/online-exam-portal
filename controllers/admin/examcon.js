@@ -182,7 +182,7 @@ module.exports.approveexam = async(req,res)=>{
 
 module.exports.studentRequests = async(req,res)=>{
     const {id} = req.params
-    const exam = await Exam.findById(id).populate("enrolled")
+    const exam = await Exam.findById(id).populate("enrolled");
     res.render("admin/studentRequest.ejs",{exam})
 }
 
@@ -191,8 +191,8 @@ module.exports.studentRequests = async(req,res)=>{
 exports.approveEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
-        await examEnrollment.findByIdAndUpdate(id, { status: 'approved' });
-        return res.redirect(`/approveExam`);
+        let list = await examEnrollment.findByIdAndUpdate(id, { status: 'approved' });
+        res.redirect(`/approveExam/${list.examId}/student`);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).send("Internal Server Error");
@@ -202,8 +202,8 @@ exports.approveEnrollment = async (req, res) => {
 exports.rejectEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
-        await examEnrollment.findByIdAndUpdate(id, { status: 'rejected' });
-        res.redirect(`/approveExam`);
+       let list = await examEnrollment.findByIdAndUpdate(id, { status: 'rejected' });
+        res.redirect(`/approveExam/${list.examId}/student`);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).send("Internal Server Error");
