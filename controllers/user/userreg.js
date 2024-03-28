@@ -2,7 +2,12 @@ const User = require("../../models/users.js")
 
 
 module.exports.registrationUser = (req,res)=>{
-    res.render("users/signup.ejs")
+    try {
+        res.render("users/signup.ejs")
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
 };
 
 module.exports.signupuser = async (req,res)=>{
@@ -20,12 +25,22 @@ module.exports.signupuser = async (req,res)=>{
 }
 
 module.exports.login = (req,res)=>{
-    res.render("users/login.ejs")
+    try {
+        res.render("users/login.ejs")
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
 }
 
 module.exports.loginuser = async (req,res)=>{
-    req.flash("success","welcome back to quiz")
-    res.redirect("/home");
+    try {
+        req.flash("success","welcome back to quiz")
+        res.redirect("/home");
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
 }
 
 module.exports.logout = async (req,res,next)=>{
@@ -39,13 +54,30 @@ module.exports.logout = async (req,res,next)=>{
 }
 
 module.exports.home = async(req,res)=>{
-    res.render("templates/home.ejs");
+    try {
+        res.render("templates/home.ejs");
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
+    
 }
 
 module.exports.about = async(req,res)=>{
-    res.render("templates/aboutpage.ejs");
+    try {
+        res.render("templates/aboutpage.ejs");
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
+   
 }
 
 module.exports.contactus = async(req,res)=>{
-    res.render("templates/contact.ejs")
+    try {
+        res.render("templates/contact.ejs")
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
 }

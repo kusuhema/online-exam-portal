@@ -39,10 +39,11 @@
 
   .username p {
     margin: 0;
-    border: 1px solid black;
     padding : 5px 10px 5px 10px;
     font-weight: 600;
     border-radius: 1rem;
+    color: #fff ;
+    background-color: #ff9100;
   }
 
 </style>
@@ -51,18 +52,23 @@
   <header>
     <% const admin = process.env.ADMIN_USERNAME %>
     <div class="navbar">
-      <div class="logo"><a href="#">Online</a></div>
+      <div class="logo"><a href="/home">Web Based Student Performance Assessment System</a></div>
       <ul class="links">
         <li><a class="an" href="/home">Home</a></li>
         <li><a class="an" href="/about">About</a></li>
-        <li><a class="an" href="/contactus">contact us</a></li>
+        <li><a class="an" href="/contactus">Contactus</a></li>
         <li><a class="an" href="/allExams">Tests</a></li>
         <% if(currUser && currUser.username === admin) { %>
-        <li><a  class="an" href="/showExamDetails">Admin</a></li>
-        <li><a class="an" href="/student/:id/record">records</a></li>
-        <li><a class="an" href="/approveExam">Approve Requests</a></li>
-        <%} %>
-        
+          <div class="dropdown">
+            <button class="dropbtn">Admin</button>
+            <div class="dropdown-content">
+              <a href="/showExamDetails">Exam</a>
+              <a href="/student/:id/record">Records</a>
+              <a href="/approveExam">Approve Requests</a>
+              <a href="/feedback">Feedback</a>
+            </div>
+          </div>  
+        <% } %> 
       </ul>
       <% if (currUser) { %>
         <div class="username">
@@ -78,11 +84,21 @@
     </div>
  
     <div class="dropdown_menu ">
-      <li><a class="an" href="#">Home</a></li>
-      <li><a class="an" href="#">About</a></li>
-      <li><a class="an" href="#">Services</a></li>
-      <li><a class="an" href="#">Content</a></li>
-
+      <li><a class="an" href="/home">Home</a></li>
+        <li><a class="an" href="/about">About</a></li>
+        <li><a class="an" href="/contactus">Contactus</a></li>
+        <li><a class="an" href="/allExams">Tests</a></li>
+        <% if(currUser && currUser.username === admin) { %>
+          <div class="dropdown">
+            <button class="dropbtn">Admin</button>
+            <div class="dropdown-content">
+              <a href="/showExamDetails">Exam</a>
+              <a href="/student/:id/record">Records</a>
+              <a href="/approveExam">Approve Requests</a>
+              <a href="/feedback">Feedback</a>
+            </div>
+          </div>  
+        <% } %> 
       <% if (currUser) { %>
         <a href="/logout" class="action_btn"><b>logout</b></a>
       <% } else if(!currUser) { %>

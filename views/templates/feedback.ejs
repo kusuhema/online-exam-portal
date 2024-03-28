@@ -1,0 +1,19 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="container feed-main mt-4">
+    <% for (feed of feedback) { %>
+        <div class="feedback">
+            <div><strong> Email :</strong> <%= feed.email %></div>
+            <div><strong> Name :</strong><%= feed.username%></div>
+            <div><strong> Subject :</strong> <%= feed.subject%></div>
+            <div>
+                <strong> Message :</strong><%= feed.message%>
+            </div>
+            <div class="feeddel mt-2">
+                <form action="/del/<%= feed._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-dark" type="submit"> Delete </button>
+                </form>
+            </div>
+        </div>
+    <% } %>
+</div>

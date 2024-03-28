@@ -11,8 +11,8 @@ module.exports.showExams = async(req,res)=>{
         const exam = await Exam.find();
         res.render("student/displayexam.ejs",{exam})
     }catch(error){
-        console.error("Error : ",error);
-        return res.status(500).send("Internal Server Error")
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
     }
 }
 
@@ -39,8 +39,8 @@ module.exports.requestEnrollment = async(req,res)=>{
         return res.redirect("/dashboard/:id")
 
     } catch (error) {
-        console.error("Error : ",error);
-        return res.status(500).send("Internal Server Error")
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
     }
 }
 
@@ -51,8 +51,8 @@ module.exports.examInstructions = async(req,res)=>{
 
         res.render("student/instructions.ejs",{exam})
     }catch(error){
-        console.error("Error : ", error);
-        return res.status(500).send("Internal Server Error");    
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")   
     }
 }
 
@@ -71,8 +71,8 @@ module.exports.getQuestionFromExamID = async(req,res)=>{
         // exam.questions = shuffleArray(exam.questions);
         res.render("student/displayQues.ejs",{exam,currentQuestionIndex : 0});
     }catch(error){
-        console.error("Error : ", error);
-        return res.status(500).send("Internal Server Error");    
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")   
     }
 }
 
@@ -154,7 +154,7 @@ module.exports.submitAns = async (req, res) => {
         res.render("student/score.ejs",{totalQuestions,score,skipped,incorrect,Answers,username,date,userid,selectedOptions,actualQuestions,examname});
     }catch(error) {
         console.error("Error:", error);
-        return res.status(500).send("Internal Server Error");
+        res.render("templates/internalerror.ejs")
     }
 };
 
@@ -163,8 +163,8 @@ module.exports.records = async(req,res)=>{
         const record = await StudentPerformance.find();
         res.render("templates/records.ejs",{record});
     }catch(error) {
-        console.error("Error : ",error);
-        return res.status(500).send("Internal Server Error")
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
     }
 }
 
@@ -180,8 +180,8 @@ module.exports.filterRecords = async (req, res) => {
 
         res.render("templates/records.ejs", { record: filteredRecords });
     } catch (error) {
-        console.error("Error : ", error);
-        return res.status(500).send("Internal Server Error");
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
     }
 }
 
@@ -208,10 +208,9 @@ module.exports.dashboard = async(req,res)=>{
             enroll: { enrolled: filteredEnrolledExams }
         });
     }catch(error){
-        console.error("Error : ",error);
-        return res.status(500).send("Internal Server Error")
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
     }
-    
 }
 
 

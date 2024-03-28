@@ -7,7 +7,7 @@ const {isLoggedin,checkEnrollment} = require("../middleware.js");
 const {registrationUser,signupuser,login, loginuser,logout,home,about,contactus} = require("../controllers/user/userreg.js");
 const {addExamDetails,exam,showExamDetails,deleteExam,editbyId,saveEditedExam} = require("../controllers/admin/examcon.js");
 const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQuestions,
-        deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment} = require("../controllers/admin/examcon.js");
+        deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment,contact,feedback,delfeed} = require("../controllers/admin/examcon.js");
 const {examInstructions,getQuestionFromExamID,submitAns,records,showExams,dashboard,filterRecords,requestEnrollment} = require("../controllers/Student/examQues.js");
 const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPraticeTest}= require("../controllers/pratice/pratice.js")
 
@@ -48,7 +48,13 @@ router.put("/editform/:id",saveEditedExam)
 //delete adminexam route
 router.delete("/Exam/:id",deleteExam);
 
-// exam questions routes
+// contactus
+router.post("/contactus",contact);
+
+//feedback
+router.get("/feedback",feedback);
+
+router.delete("/del/:id",delfeed)
 
 //admin examQuestions routes
 router.get("/addQuestion/:id/add",addQuestions);

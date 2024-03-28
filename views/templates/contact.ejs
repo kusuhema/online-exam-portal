@@ -3,8 +3,8 @@
 <div class="contact mt-5 mb-5" id="contact">
     <div class="container">
         <div class="heading text-center">
-            <h2>Contact
-                <span> Us </span></h2>
+            <h2>Student
+                <span> FeedBack </span></h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 <br>incididunt ut labore et dolore magna aliqua.</p>
         </div>
@@ -39,20 +39,20 @@
             </div>
 
             <div class="col-md-7">
-                <form>
+                <form action="/contactus" method="POST">
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" placeholder="Name">
+                            <input type="text" class="form-control" placeholder="Name" name="Name">
                         </div>
                         <div class="col-sm-6">
-                            <input type="email" class="form-control" placeholder="Email">
+                            <input type="email" class="form-control" placeholder="Email" name="Email">
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" class="form-control" placeholder="Subject" name="Subject">
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Message"></textarea>
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Message" name="Message"></textarea>
                     </div>
                     <button class="btn btn-block" type="submit">Send Now!</button>
                 </form>
