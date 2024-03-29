@@ -54,33 +54,38 @@
     .exam-start-button {
         padding-left: 8rem ;
     }
-
+    .EXAMAVI {
+        padding-bottom: 1.5rem;
+        border-bottom: 2px solid #eee;
+    }
 </style>
 
 <div class="container contsin">
-    <h2 id=font>Exams</h2>
-        <div class="contsin">
-            <% for(del of exam) { %>
-                <div class="created-exam">
-                    <div class="created-exam-sub">
-                        <div class="created-exam-sub1">
+    <div class="EXAMAVI container">
+        <h2 id=font>Available <span style="color: #ff9100;">Exams</span></h2>
+    </div>
+    <div class="contsin">
+        <% for(del of exam) { %>
+            <div class="created-exam">
+                <div class="created-exam-sub">
+                    <div class="created-exam-sub1">
                             <%= del.examName %>
-                        </div>
-                        <div class="created-exam-sub2">
+                    </div>
+                    <div class="created-exam-sub2">
                             <li><i class="fa-solid fa-calendar"></i> <%= del.created_at.toLocaleDateString() %></li>
+                    </div>
+                    <div class="row">
+                        <div class="created-exam-sub3 ">
+                            <li><%= del.category  %></li> 
                         </div>
-                        <div class="row">
-                            <div class="created-exam-sub3 ">
-                                <li><%= del.category  %></li> 
-                            </div>
-                            <div class=" exam-start-button col">
-                                <form action="/request/<%= currUser._id %>/exam/<%= del._id %>" method="POST">
-                                    <button class="btn btn-success">Enroll</button>
-                                </form>
-                            </div>
+                        <div class=" exam-start-button col">
+                            <form action="/request/<%= currUser._id %>/exam/<%= del._id %>" method="POST">
+                                <button class="btn btn-success">Enroll</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            <% } %>
-        </div>    
+            </div>
+        <% } %>
+    </div>    
 </div>   
