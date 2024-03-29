@@ -11,7 +11,6 @@ const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQue
 const {examInstructions,getQuestionFromExamID,submitAns,records,showExams,dashboard,filterRecords,requestEnrollment} = require("../controllers/Student/examQues.js");
 const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPraticeTest}= require("../controllers/pratice/pratice.js")
 
-
 // user login and signup routes
  
 router.get("/login",login);
@@ -29,7 +28,6 @@ router.get("/home",home);
 router.get("/about",about)
 
 router.get("/contactus",contactus)
-
 
 //admin page routes 
 //create
@@ -72,9 +70,7 @@ router.put("/editQuestion/:id/edit/:questionId",saveEditQuestions);
 //delete route for question
 router.delete("/Exam/:id/delete/:questionId",deleteQuestionFromExam);
 
-
 //student exam routes
-
 //student enroll request
 
 router.post('/request/:userid/exam/:examid',checkEnrollment,requestEnrollment);
@@ -85,15 +81,11 @@ router.get("/approveExam",approveexam);
 
 router.get("/approveExam/:id/student",studentRequests);
 
-
-
 router.post("/enrollment-requests/:id/approve",approveEnrollment)
 
 router.post("/enrollment-requests/:id/reject",rejectEnrollment)
 
-
 //update status
-
 
 //instructions route
 router.get("/StudentExam/:id/instructions",isLoggedin,examInstructions);
@@ -106,7 +98,6 @@ router.post("/StudentExam/:id/exam",submitAns);
 router.get("/student/:id/record",isLoggedin,records);
 
 router.post('/filter-records', filterRecords);
-
 
 //showing exams 
 router.get("/allExams",isLoggedin,showExams);
