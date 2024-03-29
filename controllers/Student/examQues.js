@@ -196,6 +196,9 @@ module.exports.dashboard = async(req,res)=>{
         const userWithReports = await user.findById(userid).populate("records");
         const userWithEnrolledExams = await user.findById(userid).populate("enrolled");
 
+         // Sort records by most recent first
+         userWithReports.records.sort((a, b) => b.created_at - a.created_at);
+
         // Filter enrolled exams to exclude those for which reports exist
         const filteredEnrolledExams = userWithEnrolledExams.enrolled.filter(EnrollmentRequest => {
             return !userWithReports.records.some(StudentPerformance => StudentPerformance.examid.equals(EnrollmentRequest.examId));
