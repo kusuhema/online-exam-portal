@@ -28,7 +28,8 @@ module.exports.exam = async(req,res)=>{
             totalMarks:totalMarks,
             passingMarks:passingMarks,
         })
-        await newExam.save()
+        await newExam.save();
+        req.flash("success","new exam was Created");
         await res.redirect("/showExamDetails")
     } catch (error) {
         console.error("Error:", error);
@@ -63,6 +64,7 @@ module.exports.saveEditedExam = async(req,res)=>{
     try {
         let {id} = req.params;
         await Exam.findByIdAndUpdate(id, {...req.body.exam});
+        req.flash("success","exam details edited successful");
         res.redirect("/showExamDetails")
     } catch (error) {
         console.error("Error:", error);
@@ -76,6 +78,7 @@ module.exports.deleteExam = async(req,res)=>{
         await Exam.findByIdAndDelete(id);
         await examEnrollment.deleteMany({ examId: id });
         await Questions.deleteMany({exam : id })
+        req.flash("error","Exam is deleted");
     } catch (error) {
         console.error("Error:", error);
         res.render("templates/internalerror.ejs")
@@ -111,7 +114,7 @@ module.exports.addQuestToDb = async(req,res)=>{
         const exam = await Exam.findOne({_id : id});
         exam.questions.push(ques._id);
         await exam.save();
-
+        req.flash("success","new Question is created");
         res.redirect(`/Questions/${id}`);
     } catch (error) {
         console.error("Error:", error);
@@ -150,6 +153,7 @@ module.exports.saveEditQuestions = async(req,res)=>{
     try {
         let {questionId,id} = req.params;
         await Questions.findByIdAndUpdate(questionId, req.body);
+        req.flash("success","Question edited successful");
         res.redirect(`/Questions/${id}`);
     } catch (error) {
         console.error("Error:", error);
@@ -230,6 +234,7 @@ module.exports.contact = async(req,res)=>{
         });
     
         await newcontact.save();
+        req.flash("success","feedback sent successfully");
         return res.redirect("/contactus")
     } catch (error) {
         console.error("Error:", error);
@@ -251,6 +256,7 @@ module.exports.delfeed = async(req,res)=>{
     const {id} = req.params;
     try {
         await contact.findByIdAndDelete(id)
+        req.flash("success","feedback deleted successfully");
         res.redirect("/feedback")
     } catch (error) {
         console.error("Error:", error);

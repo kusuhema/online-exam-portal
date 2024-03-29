@@ -9,6 +9,7 @@ const EnrollmentRequest = require("../../models/examenrollment.js")
 module.exports.showExams = async(req,res)=>{
     try {
         const exam = await Exam.find();
+        req.flash("success","Welcome to Student Assessment system");
         res.render("student/displayexam.ejs",{exam})
     }catch(error){
         console.error("Error:", error);
@@ -35,8 +36,8 @@ module.exports.requestEnrollment = async(req,res)=>{
        
          await Exam.findByIdAndUpdate(examid, { $push: { enrolled: enrollment._id } });
          await user.findByIdAndUpdate(userid, { $push: { enrolled: enrollment._id } });
-       
-        return res.redirect("/dashboard/:id")
+         req.flash("success","your are Enrollment was successfull");
+         return res.redirect("/dashboard/:id")
 
     } catch (error) {
         console.error("Error:", error);
