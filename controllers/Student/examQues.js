@@ -216,8 +216,3 @@ module.exports.dashboard = async(req,res)=>{
         res.render("templates/internalerror.ejs")
     }
 }
-
-
-    
-
-

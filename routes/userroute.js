@@ -127,7 +127,4 @@ router.get("/cPraticeTest",cPraticeTest);
 
 router.get("/ccPraticeTest",ccPraticeTest);
 
-
-
-
 module.exports = router

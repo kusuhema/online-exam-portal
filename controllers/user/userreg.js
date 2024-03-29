@@ -35,7 +35,7 @@ module.exports.login = (req,res)=>{
 
 module.exports.loginuser = async (req,res)=>{
     try {
-        req.flash("success","welcome back to quiz")
+        req.flash("success","welcome back to Web Based Student Performance Assessment System")
         res.redirect("/home");
     } catch (error) {
         console.error("Error:", error);
