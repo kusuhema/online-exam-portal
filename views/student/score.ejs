@@ -88,13 +88,38 @@
         background-color: #FFA500;
     }
 
-
+    #pfss {
+        padding: 10px 15px 10px 15px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border-radius: 15px;
+    }
+    .passmain {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
 </style>
 
 <div class="container">
     <div class="score-main">
         <div class="score-main1">
-            <p id="date">Test Date : <%= date %></p>
+            <div class="passmain">
+                <p id="date">Test Date : <%= date %></p>
+                <div class="text-center passfail">
+                    <% if(pfss === "Pass") { %>
+                        <li id="pfss" style="background-color: green;"><%= pfss%></li> 
+                    <%}%>   
+                    <% if(pfss === "fail") { %>
+                        <p id="pfss" style="background-color: red;"> 
+                            <%= pfss %>
+                        </p> 
+                    <%}%>  
+                </div>
+            </div>
             <p id="examName">Exam : <%= examname %></p>
             <p id="score"><%= username  %></p>
             <p id="score"><%= userid %></p>
@@ -139,6 +164,7 @@
         </div>
         <div class="hrbtn">
             <button id="showTestReport">Show Test Report</button>
+            <a href="/contactus"><button>FeedBack</button></a>
             <a href="/home"><button class="btn btn-outline-dark">Home</button></a>
         </div>
     </div>

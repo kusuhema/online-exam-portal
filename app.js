@@ -18,8 +18,8 @@ const moment = require('moment');
 
 
  
-// const mongourl = 'mongodb://127.0.0.1:27017/quiz';
-const db_url = process.env.MONGODB_URL
+const mongourl = 'mongodb://127.0.0.1:27017/quiz';
+// const db_url = process.env.MONGODB_URL
 
 const registerrouter = require("./routes/userroute.js");
 const User = require("./models/users.js");
@@ -31,7 +31,7 @@ main().then(()=>{
 }).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(db_url);   
+  await mongoose.connect(mongourl);   
 }
 
 app.set("views",path.join(__dirname,"views"));
@@ -44,7 +44,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
  
 const store = MongoStore.create({
-    mongoUrl : db_url,
+    mongoUrl : mongourl,
     crypto : {
         secret : process.env.SECRET,
     },

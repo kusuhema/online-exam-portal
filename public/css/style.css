@@ -733,7 +733,7 @@ button {
   font-weight: 600;
 }
 
-.content {
+.contente {
   position: absolute;
   bottom: -100px;
   left: 10px;
@@ -741,11 +741,11 @@ button {
   transition: all 0.3s;
 }
 
-.content h3 {
+.contente h3 {
   font-weight: 600;
 }
 
-.card-txt:hover .content {
+.card-txt:hover .contente {
   bottom: 10px;
   transition: all 0.8s;
 }
@@ -895,8 +895,46 @@ button {
   font-weight: 600;
 }
 
-/* contact us page */
+.review-heading {
+  border-bottom: 2px solid #959494;
+}
 
+.review-heading h1 {
+  font-weight: 600;
+}
+
+.review-heading h1 span {
+  font-weight: 600;
+  color: #e74d06;
+}
+
+.Addreview {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #959494;
+  margin-bottom: 10px;
+}
+
+.allshowReviews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.showReview {
+  width: 30%;
+  border: 1px solid #eee;
+  margin: 10px 10px 30px 10px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.revUsername {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* contact us page */
 .contact .heading h2 {
   font-size: 30px;
   font-weight: 700;

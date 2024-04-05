@@ -66,15 +66,15 @@
     // Update the timer every second
     const timerInterval = setInterval(updateTimer, 1000);
 });
-function confirmLeave(event) {
-    console.log("Leaving the page...");
-    event.preventDefault();
-    const confirmationMessage = 'Are you sure you want to leave? Your progress may be lost.';
-    event.returnValue = confirmationMessage; // For older browsers
-    return confirmationMessage;
-}
-window.addEventListener('beforeunload', function(event) {
-        event.preventDefault();
-});
+// function confirmLeave(event) {
+//     console.log("Leaving the page...");
+//     event.preventDefault();
+//     const confirmationMessage = 'Are you sure you want to leave? Your progress may be lost.';
+//     event.returnValue = confirmationMessage; // For older browsers
+//     return confirmationMessage;
+// }
+// window.addEventListener('beforeunload', function(event) {
+//         event.preventDefault();
+// });
 </script>
    

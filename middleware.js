@@ -1,4 +1,5 @@
-const EnrollmentRequest = require("./models/examenrollment.js")
+const EnrollmentRequest = require("./models/examenrollment.js");
+const reviews = require("./models/contact.js")
 
 
 module.exports.isLoggedin = (req,res,next)=>{

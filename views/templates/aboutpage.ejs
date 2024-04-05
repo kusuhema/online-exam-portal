@@ -42,6 +42,68 @@
               </li>
           </ul>
       </div>
-      
   </div>
 </section>
+<div class="container mt-3">
+    <div class="review-heading text-center">
+        <h1><span>R</span>eviews</h1>
+    </div>
+</div>    
+<% if(currUser) {%>
+    <div class="container mt-3">
+        <div class="Addreview mt-3 mb-3">
+            <form action="/review/<%= currUser._id%>" method="POST">
+                <div>
+                    <label for="rating">Rating :</label>
+                    <fieldset class="starability-slot">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="rating" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="rating" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="rating" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="rating" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="rating" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
+                </div>
+                <div>
+                    <textarea name="Review" cols="50" rows="5" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-dark">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<%}%>
+<% const admin = process.env.ADMIN_USERNAME %>
+<div class="container mt-3 allshowReviews">
+    <% for (review of stdreviews) { %>
+        <div class="showReview">
+            <div class="revUsername">
+                <%= review. username%>
+            </div>
+            <div class="revreview">
+                <%= review.review%>
+            </div>
+            <div>
+                <p class="starability-result" data-rating="<%= review.rating %>">
+                </p>
+            </div>
+            <div class="mb-3">
+                <% if(currUser && currUser.username === admin) { %>
+                    <form action="/review/<%= review._id %>/delete?_method=DELETE" method="POST">
+                        <button class="btn btn-dark">delete</button>
+                    </form>
+                <% } %> 
+            </div>
+        </div>  
+    <%} %>
+</div>
+
+
+
+  

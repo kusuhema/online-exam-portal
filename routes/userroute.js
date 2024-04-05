@@ -8,7 +8,7 @@ const {registrationUser,signupuser,login, loginuser,logout,home,about,contactus}
 const {addExamDetails,exam,showExamDetails,deleteExam,editbyId,saveEditedExam} = require("../controllers/admin/examcon.js");
 const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQuestions,
         deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment,contact,feedback,delfeed} = require("../controllers/admin/examcon.js");
-const {examInstructions,getQuestionFromExamID,submitAns,records,showExams,dashboard,filterRecords,requestEnrollment} = require("../controllers/Student/examQues.js");
+const {examInstructions,getQuestionFromExamID,submitAns,records,showExams,dashboard,filterRecords,requestEnrollment,reviews,delRevview} = require("../controllers/Student/examQues.js");
 const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPraticeTest}= require("../controllers/pratice/pratice.js")
 
 // user login and signup routes
@@ -25,7 +25,11 @@ router.get("/logout",logout);
 
 router.get("/home",home);
 
-router.get("/about",about)
+router.get("/about",about);
+
+router.post("/review/:id",reviews);
+
+router.delete("/review/:id/delete",delRevview);
 
 router.get("/contactus",contactus)
 
@@ -52,7 +56,7 @@ router.post("/contactus",contact);
 //feedback
 router.get("/feedback",feedback);
 
-router.delete("/del/:id",delfeed)
+router.delete("/del/:id",delfeed);
 
 //admin examQuestions routes
 router.get("/addQuestion/:id/add",addQuestions);

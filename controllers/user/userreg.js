@@ -1,4 +1,5 @@
-const User = require("../../models/users.js")
+const User = require("../../models/users.js");
+const reviews = require("../../models/reviews.js")
 
 
 module.exports.registrationUser = (req,res)=>{
@@ -65,7 +66,8 @@ module.exports.home = async(req,res)=>{
 
 module.exports.about = async(req,res)=>{
     try {
-        res.render("templates/aboutpage.ejs");
+        const stdreviews = await reviews.find() 
+        res.render("templates/aboutpage.ejs",{stdreviews});
     } catch (error) {
         console.error("Error:", error);
         res.render("templates/internalerror.ejs")

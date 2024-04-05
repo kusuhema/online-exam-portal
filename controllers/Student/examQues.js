@@ -2,7 +2,8 @@ const Exam = require("../../models/exam.js");
 const questions = require("../../models/questions.js");
 const user = require("../../models/users.js")
 const StudentPerformance = require("../../models/records.js");
-const EnrollmentRequest = require("../../models/examenrollment.js")
+const EnrollmentRequest = require("../../models/examenrollment.js");
+const Reviews = require("../../models/reviews.js")
 
 
 
@@ -152,7 +153,8 @@ module.exports.submitAns = async (req, res) => {
         await studentRecord.save();
         const student = await StudentPerformance.findById(performance._id);
         const date = student.created_at.toLocaleDateString();
-        res.render("student/score.ejs",{totalQuestions,score,skipped,incorrect,Answers,username,date,userid,selectedOptions,actualQuestions,examname});
+        const pfss = student.vedrict;
+        res.render("student/score.ejs",{totalQuestions,score,skipped,incorrect,Answers,username,date,userid,selectedOptions,actualQuestions,examname,pfss});
     }catch(error) {
         console.error("Error:", error);
         res.render("templates/internalerror.ejs")
@@ -186,8 +188,6 @@ module.exports.filterRecords = async (req, res) => {
     }
 }
 
-
-
 module.exports.dashboard = async(req,res)=>{
     try {
         const username = req.user.username;
@@ -212,6 +212,40 @@ module.exports.dashboard = async(req,res)=>{
             enroll: { enrolled: filteredEnrolledExams }
         });
     }catch(error){
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
+}
+
+// student Reviews 
+
+module.exports.reviews = async(req,res)=>{
+    try {
+        const {id} = req.params;
+        const {Review,rating} = req.body;
+        const boy = await user.findById(id);
+        const username = boy.username;
+        const userId = boy._id
+        const newReview = new Reviews ({
+            user : userId,
+            username : username,
+            review : Review,
+            rating : rating,
+        });
+        await newReview.save();
+        res.redirect("/about")
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
+}
+
+module.exports.delRevview = async(req,res)=>{
+    try {
+        const {id} = req.params;
+        await Reviews.findByIdAndDelete(id)
+        res.redirect("/about")
+    } catch (error) {
         console.error("Error:", error);
         res.render("templates/internalerror.ejs")
     }
