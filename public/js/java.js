@@ -1,260 +1,448 @@
 const questions = 
 [
-    {
-      "question": "What is the main purpose of the 'public static void main(String[] args)' method in Java?",
-      "options": [
-        { "text": "Defining a class", "correct": false },
-        { "text": "Declaring variables", "correct": false },
-        { "text": "Entry point for a Java application", "correct": true },
-        { "text": "Handling exceptions", "correct": false }
-      ]
-    },
-    {
-      "question": "Which keyword is used for inheritance in Java?",
-      "options": [
-        { "text": "inherits", "correct": false },
-        { "text": "extends", "correct": true },
-        { "text": "inherit", "correct": false },
-        { "text": "implements", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the default value of an instance variable in Java?",
-      "options": [
-        { "text": "0", "correct": false },
-        { "text": "null", "correct": false },
-        { "text": "Depends on the variable type", "correct": true },
-        { "text": "1", "correct": false }
-      ]
-    },
-    {
-      "question": "Which data type is used for handling single characters in Java?",
-      "options": [
-        { "text": "char", "correct": true },
-        { "text": "String", "correct": false },
-        { "text": "int", "correct": false },
-        { "text": "float", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'super' keyword in Java?",
-      "options": [
-        { "text": "Referring to the immediate subclass", "correct": false },
-        { "text": "Calling the superclass method", "correct": true },
-        { "text": "Creating an instance of a class", "correct": false },
-        { "text": "Accessing a static variable", "correct": false }
-      ]
-    },
-    {
-      "question": "Which keyword is used to declare a constant variable in Java?",
-      "options": [
-        { "text": "final", "correct": true },
-        { "text": "const", "correct": false },
-        { "text": "static", "correct": false },
-        { "text": "constant", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'this' keyword in Java?",
-      "options": [
-        { "text": "Referring to the current class", "correct": false },
-        { "text": "Referring to the current object", "correct": true },
-        { "text": "Accessing a static method", "correct": false },
-        { "text": "Creating an instance of a class", "correct": false }
-      ]
-    },
-    {
-      "question": "Which statement is used to exit a loop prematurely in Java?",
-      "options": [
-        { "text": "return", "correct": false },
-        { "text": "break", "correct": true },
-        { "text": "exit", "correct": false },
-        { "text": "continue", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'interface' keyword in Java?",
-      "options": [
-        { "text": "Defining a class", "correct": false },
-        { "text": "Declaring an abstract class", "correct": false },
-        { "text": "Defining a contract for classes to implement", "correct": true },
-        { "text": "Creating an instance of a class", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to compare two strings in Java?",
-      "options": [
-        { "text": "compare()", "correct": false },
-        { "text": "equals()", "correct": true },
-        { "text": "compareTo()", "correct": false },
-        { "text": "equal()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'static' keyword in Java?",
-      "options": [
-        { "text": "Creating an instance of a class", "correct": false },
-        { "text": "Referring to the current object", "correct": false },
-        { "text": "Declaring a variable or method as class-level", "correct": true },
-        { "text": "Accessing a non-static method", "correct": false }
-      ]
-    },
-    {
-      "question": "Which statement is used to handle exceptions in Java?",
-      "options": [
-        { "text": "try-throw", "correct": false },
-        { "text": "catch", "correct": true },
-        { "text": "throw", "correct": false },
-        { "text": "finally", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'ArrayList' class in Java?",
-      "options": [
-        { "text": "Storing key-value pairs", "correct": false },
-        { "text": "Implementing a dynamic array", "correct": true },
-        { "text": "Creating a linked list", "correct": false },
-        { "text": "Sorting elements in a list", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to obtain the length of an array in Java?",
-      "options": [
-        { "text": "lengthOf()", "correct": false },
-        { "text": "size()", "correct": false },
-        { "text": "length()", "correct": true },
-        { "text": "getSize()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'instanceof' operator in Java?",
-      "options": [
-        { "text": "Checking if an object is an instance of a class", "correct": true },
-        { "text": "Comparing two instances of a class", "correct": false },
-        { "text": "Creating a new instance of a class", "correct": false },
-        { "text": "Accessing a static method", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to convert a string to an integer in Java?",
-      "options": [
-        { "text": "parseInteger()", "correct": false },
-        { "text": "toInt()", "correct": false },
-        { "text": "parseInt()", "correct": true },
-        { "text": "convertToInt()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'StringBuilder' class in Java?",
-      "options": [
-        { "text": "Building graphical user interfaces", "correct": false },
-        { "text": "Creating dynamic arrays", "correct": false },
-        { "text": "Building and manipulating strings efficiently", "correct": true },
-        { "text": "Implementing a linked list", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to obtain the absolute value of a number in Java?",
-      "options": [
-        { "text": "abs()", "correct": true },
-        { "text": "absolute()", "correct": false },
-        { "text": "getAbsolute()", "correct": false },
-        { "text": "calculateAbsolute()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'break' statement in Java?",
-      "options": [
-        { "text": "Ending the program execution", "correct": false },
-        { "text": "Exiting a loop prematurely", "correct": true },
-        { "text": "Returning a value from a method", "correct": false },
-        { "text": "Skipping the current iteration of a loop", "correct": false }
-      ]
-    },
-    {
-      "question": "Which class is used for reading input from the console in Java?",
-      "options": [
-        { "text": "ConsoleReader", "correct": false },
-        { "text": "System.in", "correct": false },
-        { "text": "Scanner", "correct": true },
-        { "text": "InputReader", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'Math.pow()' method in Java?",
-      "options": [
-        { "text": "Calculating the square root of a number", "correct": false },
-        { "text": "Raising a number to the power of another", "correct": true },
-        { "text": "Finding the maximum of two numbers", "correct": false },
-        { "text": "Calculating the logarithm of a number", "correct": false }
-      ]
-    },
-    {
-      "question": "Which keyword is used to prevent a method from being overridden in Java?",
-      "options": [
-        { "text": "override", "correct": false },
-        { "text": "final", "correct": true },
-        { "text": "abstract", "correct": false },
-        { "text": "static", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'Thread.sleep()' method in Java?",
-      "options": [
-        { "text": "Pausing the program execution", "correct": true },
-        { "text": "Terminating a thread", "correct": false },
-        { "text": "Putting a thread to sleep permanently", "correct": false },
-        { "text": "Starting a new thread", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to convert a primitive data type to a string in Java?",
-      "options": [
-        { "text": "toString()", "correct": true },
-        { "text": "stringify()", "correct": false },
-        { "text": "parseString()", "correct": false },
-        { "text": "convertToString()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'HashSet' class in Java?",
-      "options": [
-        { "text": "Sorting elements in a set", "correct": false },
-        { "text": "Storing key-value pairs", "correct": false },
-        { "text": "Implementing a dynamic set", "correct": false },
-        { "text": "Storing unique elements in a set", "correct": true }
-      ]
-    },
-    {
-      "question": "Which method is used to convert a string to uppercase in Java?",
-      "options": [
-        { "text": "toUpper()", "correct": false },
-        { "text": "toUpperCase()", "correct": true },
-        { "text": "convertCase()", "correct": false },
-        { "text": "upperCase()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'interface' keyword in Java?",
-      "options": [
-        { "text": "Defining a class", "correct": false },
-        { "text": "Declaring an abstract class", "correct": false },
-        { "text": "Defining a contract for classes to implement", "correct": true },
-        { "text": "Creating an instance of a class", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to compare two objects for equality in Java?",
-      "options": [
-        { "text": "compare()", "correct": false },
-        { "text": "isEqual()", "correct": false },
-        { "text": "equals()", "correct": true },
-        { "text": "compareObjects()", "correct": false }
-      ]
-    }
-  ]
-  
-  
+  {
+    "question": "What is the result of 3 + 5 * 2 in Java?",
+    "options": [
+      {"text": "13", "correct": false},
+      {"text": "16", "correct": true},
+      {"text": "11", "correct": false},
+      {"text": "15", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(5 == 5.0) in Java?",
+    "options": [
+      {"text": "true", "correct": true},
+      {"text": "false", "correct": false},
+      {"text": "0", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 11 % 3 in Java?",
+    "options": [
+      {"text": "4", "correct": false},
+      {"text": "2", "correct": true},
+      {"text": "3", "correct": false},
+      {"text": "0", "correct": false}
+    ]
+  },
+  {
+    "question": "Which keyword is used to define a constant in Java?",
+    "options": [
+      {"text": "const", "correct": false},
+      {"text": "final", "correct": true},
+      {"text": "static", "correct": false},
+      {"text": "let", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println('a' + 'b' + 'c') in Java?",
+    "options": [
+      {"text": "'abc'", "correct": false},
+      {"text": "6", "correct": false},
+      {"text": "abc", "correct": true},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the value of x after the following code in Java?\nint x = 5;\nx += 3;",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "8", "correct": true},
+      {"text": "3", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(Math.pow(2, 3)) in Java?",
+    "options": [
+      {"text": "6", "correct": false},
+      {"text": "9", "correct": false},
+      {"text": "8", "correct": true},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of (4 < 3) ? 'yes' : 'no' in Java?",
+    "options": [
+      {"text": "'yes'", "correct": false},
+      {"text": "'no'", "correct": true},
+      {"text": "true", "correct": false},
+      {"text": "false", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println('Java'.substring(0, 2)) in Java?",
+    "options": [
+      {"text": "'Java'", "correct": false},
+      {"text": "'Jav'", "correct": true},
+      {"text": "'ava'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "Which of the following is not a primitive data type in Java?",
+    "options": [
+      {"text": "int", "correct": false},
+      {"text": "boolean", "correct": false},
+      {"text": "string", "correct": true},
+      {"text": "char", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(10/0) in Java?",
+    "options": [
+      {"text": "Compile error", "correct": false},
+      {"text": "Infinity", "correct": true},
+      {"text": "0", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the value of x after the following code in Java?\nint x = 10;\nx /= 3;",
+    "options": [
+      {"text": "3.333", "correct": false},
+      {"text": "3", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'Java'.indexOf('a') in Java?",
+    "options": [
+      {"text": "1", "correct": true},
+      {"text": "2", "correct": false},
+      {"text": "0", "correct": false},
+      {"text": "-1", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(10 > 9 && 9 > 10) in Java?",
+    "options": [
+      {"text": "true", "correct": false},
+      {"text": "false", "correct": true},
+      {"text": "Compile error", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be printed by the following code in Java?\nint[] arr = {1, 2, 3, 4, 5};\nSystem.out.println(arr[5]);",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "IndexOutOfBoundsException", "correct": true},
+      {"text": "Compile error", "correct": false},
+      {"text": "0", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println('java'.toUpperCase()) in Java?",
+    "options": [
+      {"text": "'java'", "correct": false},
+      {"text": "'JAVA'", "correct": true},
+      {"text": "'Java'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'hello'.compareTo('Hello') in Java?",
+    "options": [
+      {"text": "0", "correct": false},
+      {"text": "1", "correct": true},
+      {"text": "-1", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(Math.round(5.5)) in Java?",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "6", "correct": false},
+      {"text": "6.0", "correct": false},
+      {"text": "5.5", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'hello'.substring(0, 2) in Java?",
+    "options": [
+      {"text": "'he'", "correct": true},
+      {"text": "'hel'", "correct": false},
+      {"text": "'ell'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(Math.min(Double.MIN_VALUE, 0.0)) in Java?",
+    "options": [
+      {"text": "0.0", "correct": true},
+      {"text": "Double.MIN_VALUE", "correct": false},
+      {"text": "Compile error", "correct": false},
+      {"text": "Infinity", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the value of x after the following code in Java?\nint x = 5;\nx++;",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "6", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be printed by the following code in Java?\nint[] arr = new int[5];\nSystem.out.println(arr[0]);",
+    "options": [
+      {"text": "0", "correct": true},
+      {"text": "null", "correct": false},
+      {"text": "IndexOutOfBoundsException", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'java'.indexOf('v') in Java?",
+    "options": [
+      {"text": "0", "correct": false},
+      {"text": "1", "correct": true},
+      {"text": "2", "correct": false},
+      {"text": "-1", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(5/2.0) in Java?",
+    "options": [
+      {"text": "2.0", "correct": false},
+      {"text": "2", "correct": false},
+      {"text": "2.5", "correct": true},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'java'.contains('a') in Java?",
+    "options": [
+      {"text": "true", "correct": true},
+      {"text": "false", "correct": false},
+      {"text": "Compile error", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(10 > 5 && 5 > 10) in Java?",
+    "options": [
+      {"text": "true", "correct": false},
+      {"text": "false", "correct": true},
+      {"text": "Compile error", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be printed by the following code in Java?\nString str = null;\nSystem.out.println(str.length());",
+    "options": [
+      {"text": "0", "correct": false},
+      {"text": "NullPointerException", "correct": true},
+      {"text": "null", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(Math.ceil(5.5)) in Java?",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "6", "correct": true},
+      {"text": "6.0", "correct": false},
+      {"text": "5.5", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'Java'.toLowerCase() in Java?",
+    "options": [
+      {"text": "'Java'", "correct": false},
+      {"text": "'java'", "correct": true},
+      {"text": "'JAVA'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(10/0.0) in Java?",
+    "options": [
+      {"text": "Compile error", "correct": false},
+      {"text": "Infinity", "correct": true},
+      {"text": "0.0", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the value of x after the following code in Java?\nint x = 5;\nx--;",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "4", "correct": true},
+      {"text": "6", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be printed by the following code in Java?\nString str = 'Hello';\nSystem.out.println(str.charAt(5));",
+    "options": [
+      {"text": "o", "correct": false},
+      {"text": "NullPointerException", "correct": false},
+      {"text": "IndexOutOfBoundsException", "correct": true},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'hello'.toUpperCase() in Java?",
+    "options": [
+      {"text": "'hello'", "correct": false},
+      {"text": "'HELLO'", "correct": true},
+      {"text": "'Hello'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(3 * 4 / 2) in Java?",
+    "options": [
+      {"text": "6", "correct": true},
+      {"text": "12", "correct": false},
+      {"text": "7", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'Java'.length() in Java?",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compile error", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println('java'.indexOf('v', 1)) in Java?",
+    "options": [
+      {"text": "0", "correct": false},
+      {"text": "1", "correct": true},
+      {"text": "2", "correct": false},
+      {"text": "-1", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the value of x after the following code in Java?\nint x = 5;\nx *= 2;",
+    "options": [
+      {"text": "10", "correct": true},
+      {"text": "7", "correct": false},
+      {"text": "6", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be printed by the following code in Java?\nint[] arr = new int[5];\nSystem.out.println(arr[5]);",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "IndexOutOfBoundsException", "correct": true},
+      {"text": "Compile error", "correct": false},
+      {"text": "0", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(5 > 3 || 5 > 10) in Java?",
+    "options": [
+      {"text": "true", "correct": true},
+      {"text": "false", "correct": false},
+      {"text": "Compile error", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'Java'.concat(' is fun') in Java?",
+    "options": [
+      {"text": "'Java is fun'", "correct": true},
+      {"text": "'Java fun'", "correct": false},
+      {"text": "' is fun Java'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(Math.floor(5.5)) in Java?",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "6", "correct": false},
+      {"text": "6.0", "correct": false},
+      {"text": "5.5", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'hello'.charAt(0) in Java?",
+    "options": [
+      {"text": "'h'", "correct": true},
+      {"text": "'e'", "correct": false},
+      {"text": "0", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(5/0) in Java?",
+    "options": [
+      {"text": "Compile error", "correct": false},
+      {"text": "Infinity", "correct": false},
+      {"text": "0", "correct": false},
+      {"text": "Runtime error", "correct": true}
+    ]
+  },
+  {
+    "question": "What is the value of x after the following code in Java?\nint x = 5;\nx--;",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "4", "correct": true},
+      {"text": "6", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be printed by the following code in Java?\nString str = 'Hello';\nSystem.out.println(str.charAt(5));",
+    "options": [
+      {"text": "o", "correct": false},
+      {"text": "NullPointerException", "correct": false},
+      {"text": "IndexOutOfBoundsException", "correct": true},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'hello'.toUpperCase() in Java?",
+    "options": [
+      {"text": "'hello'", "correct": false},
+      {"text": "'HELLO'", "correct": true},
+      {"text": "'Hello'", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println(3 * 4 / 2) in Java?",
+    "options": [
+      {"text": "6", "correct": true},
+      {"text": "12", "correct": false},
+      {"text": "7", "correct": false},
+      {"text": "Compile error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the result of 'Java'.length() in Java?",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compile error", "correct": false},
+      {"text": "Runtime error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of System.out.println('java'.indexOf('v', 1)) in Java?",
+    "options": [
+      {"text": "0", "correct": false},
+      {"text": "1", "correct": true},
+      {"text": "2", "correct": false},
+      {"text": "-1", "correct": false}
+    ]
+  }
+]
+
 
 
   function shuffleArray(array) {
@@ -268,7 +456,7 @@ const questions =
   shuffleArray(questions);
   
   // Slice the array to get the first 10 questions
-  const selectedQuestions = questions.slice(0, 10);
+  const selectedQuestions = questions.slice(0, 20);
   
   // The rest of your existing code
   

@@ -1,307 +1,485 @@
 const questions = 
 [
-    {
-      "question": "What is the purpose of the 'int main()' function in C?",
-      "options": [
-        { "text": "Defining a class", "correct": false },
-        { "text": "Declaring variables", "correct": false },
-        { "text": "Entry point for a C program", "correct": true },
-        { "text": "Handling exceptions", "correct": false }
-      ]
-    },
-    {
-      "question": "Which symbol is used for comments in C?",
-      "options": [
-        { "text": "//", "correct": true },
-        { "text": "/* */", "correct": false },
-        { "text": "--", "correct": false },
-        { "text": "#", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the default return type of a function in C?",
-      "options": [
-        { "text": "int", "correct": true },
-        { "text": "void", "correct": false },
-        { "text": "char", "correct": false },
-        { "text": "float", "correct": false }
-      ]
-    },
-    {
-      "question": "Which data type is used for handling single characters in C?",
-      "options": [
-        { "text": "char", "correct": true },
-        { "text": "string", "correct": false },
-        { "text": "int", "correct": false },
-        { "text": "float", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'scanf()' function in C?",
-      "options": [
-        { "text": "Printing output to the console", "correct": false },
-        { "text": "Reading input from the console", "correct": true },
-        { "text": "Allocating memory", "correct": false },
-        { "text": "Opening a file", "correct": false }
-      ]
-    },
-    {
-      "question": "Which operator is used for pointer dereferencing in C?",
-      "options": [
-        { "text": "->", "correct": false },
-        { "text": "*", "correct": true },
-        { "text": ".", "correct": false },
-        { "text": "::", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'const' keyword in C?",
-      "options": [
-        { "text": "Defining a constant variable", "correct": true },
-        { "text": "Declaring a static variable", "correct": false },
-        { "text": "Creating an instance of a class", "correct": false },
-        { "text": "Initializing a variable", "correct": false }
-      ]
-    },
-    {
-      "question": "Which statement is used to exit a loop prematurely in C?",
-      "options": [
-        { "text": "return", "correct": false },
-        { "text": "break", "correct": true },
-        { "text": "exit", "correct": false },
-        { "text": "continue", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'struct' keyword in C?",
-      "options": [
-        { "text": "Defining a function", "correct": false },
-        { "text": "Declaring a constant", "correct": false },
-        { "text": "Defining a structure", "correct": true },
-        { "text": "Creating an instance of a class", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to compare two strings in C?",
-      "options": [
-        { "text": "compare()", "correct": false },
-        { "text": "equals()", "correct": false },
-        { "text": "compareTo()", "correct": false },
-        { "text": "strcmp()", "correct": true }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'static' keyword in C?",
-      "options": [
-        { "text": "Creating an instance of a class", "correct": false },
-        { "text": "Referring to the current object", "correct": false },
-        { "text": "Declaring a variable or method as class-level", "correct": true },
-        { "text": "Accessing a non-static method", "correct": false }
-      ]
-    },
-    {
-      "question": "Which statement is used to handle exceptions in C?",
-      "options": [
-        { "text": "try-throw", "correct": false },
-        { "text": "catch", "correct": false },
-        { "text": "throw", "correct": false },
-        { "text": "No built-in exception handling in C", "correct": true }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'malloc()' function in C?",
-      "options": [
-        { "text": "Copying memory", "correct": false },
-        { "text": "Allocating memory dynamically", "correct": true },
-        { "text": "Freeing allocated memory", "correct": false },
-        { "text": "Calculating memory size", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to obtain the length of a string in C?",
-      "options": [
-        { "text": "length()", "correct": false },
-        { "text": "size()", "correct": false },
-        { "text": "strlen()", "correct": true },
-        { "text": "lengthOf()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'printf()' function in C?",
-      "options": [
-        { "text": "Reading input from the console", "correct": false },
-        { "text": "Printing output to the console", "correct": true },
-        { "text": "Allocating memory", "correct": false },
-        { "text": "Opening a file", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to concatenate two strings in C?",
-      "options": [
-        { "text": "concat()", "correct": false },
-        { "text": "append()", "correct": false },
-        { "text": "strcat()", "correct": true },
-        { "text": "join()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'time()' function in C?",
-      "options": [
-        { "text": "Calculating the execution time of a program", "correct": false },
-        { "text": "Obtaining the current time", "correct": true },
-        { "text": "Pausing the program execution", "correct": false },
-        { "text": "Creating a timer", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to convert a string to an integer in C?",
-      "options": [
-        { "text": "parseInteger()", "correct": false },
-        { "text": "toInt()", "correct": false },
-        { "text": "atoi()", "correct": true },
-        { "text": "convertToInt()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'fclose()' function in C?",
-      "options": [
-        { "text": "Copying a file", "correct": false },
-        { "text": "Closing a file", "correct": true },
-        { "text": "Opening a file", "correct": false },
-        { "text": "Reading from a file", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to obtain the square root of a number in C?",
-      "options": [
-        { "text": "sqrt()", "correct": true },
-        { "text": "squareRoot()", "correct": false },
-        { "text": "getSqrt()", "correct": false },
-        { "text": "calculateRoot()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'rand()' function in C?",
-      "options": [
-        { "text": "Generating random numbers", "correct": true },
-        { "text": "Calculating logarithms", "correct": false },
-        { "text": "Finding the remainder of a division", "correct": false },
-        { "text": "Rounding a floating-point number", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to convert a primitive data type to a string in C?",
-      "options": [
-        { "text": "toString()", "correct": false },
-        { "text": "stringify()", "correct": false },
-        { "text": "sprintf()", "correct": true },
-        { "text": "convertToString()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'getchar()' function in C?",
-      "options": [
-        { "text": "Printing output to the console", "correct": false },
-        { "text": "Reading a character from the console", "correct": true },
-        { "text": "Opening a file", "correct": false },
-        { "text": "Closing a file", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to compare two arrays in C?",
-      "options": [
-        { "text": "compareArrays()", "correct": false },
-        { "text": "equals()", "correct": false },
-        { "text": "memcmp()", "correct": true },
-        { "text": "arrayEquals()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'strcpy()' function in C?",
-      "options": [
-        { "text": "Copying a file", "correct": false },
-        { "text": "Copying a string", "correct": true },
-        { "text": "Converting a string to uppercase", "correct": false },
-        { "text": "Comparing two strings", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to convert a string to lowercase in C?",
-      "options": [
-        { "text": "toLower()", "correct": false },
-        { "text": "toLowerCase()", "correct": false },
-        { "text": "strlwr()", "correct": true },
-        { "text": "convertToLower()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'memcpy()' function in C?",
-      "options": [
-        { "text": "Copying the contents of one memory block to another", "correct": true },
-        { "text": "Concatenating two strings", "correct": false },
-        { "text": "Finding the length of a string", "correct": false },
-        { "text": "Reversing the order of elements in an array", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to obtain the absolute value of a number in C?",
-      "options": [
-        { "text": "abs()", "correct": true },
-        { "text": "absolute()", "correct": false },
-        { "text": "getAbsolute()", "correct": false },
-        { "text": "calculateAbsolute()", "correct": false }
-      ]
-    }
-  ]
-  
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tint *p = &x;\n\tprintf(\"%d\", *p);\n\treturn 0;\n}",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "Garbage value", "correct": false},
+      {"text": "0", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint arr[5] = {1, 2, 3, 4, 5};\n\tprintf(\"%d\", *(arr + 2));\n\treturn 0;\n}",
+    "options": [
+      {"text": "3", "correct": true},
+      {"text": "2", "correct": false},
+      {"text": "1", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'sizeof' operator return?",
+    "options": [
+      {"text": "Size of a variable", "correct": false},
+      {"text": "Size of a datatype", "correct": true},
+      {"text": "Address of a variable", "correct": false},
+      {"text": "Value of a variable", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of 'malloc' function in C?",
+    "options": [
+      {"text": "To deallocate memory", "correct": false},
+      {"text": "To allocate memory dynamically", "correct": true},
+      {"text": "To compare two strings", "correct": false},
+      {"text": "To free allocated memory", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 10;\n\tint y = (x++) + (++x);\n\tprintf(\"%d\", y);\n\treturn 0;\n}",
+    "options": [
+      {"text": "22", "correct": true},
+      {"text": "21", "correct": false},
+      {"text": "20", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'strcmp' function do in C?",
+    "options": [
+      {"text": "Compares two strings", "correct": true},
+      {"text": "Concatenates two strings", "correct": false},
+      {"text": "Copies one string to another", "correct": false},
+      {"text": "Finds the length of a string", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar str[] = \"Hello\";\n\tprintf(\"%d\", sizeof(str));\n\treturn 0;\n}",
+    "options": [
+      {"text": "6", "correct": false},
+      {"text": "5", "correct": true},
+      {"text": "10", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar str1[] = \"Hello\";\n\tchar str2[] = \"World\";\n\tprintf(\"%s\", strcat(str1, str2));\n\treturn 0;\n}",
+    "options": [
+      {"text": "HelloWorld", "correct": false},
+      {"text": "WorldHello", "correct": false},
+      {"text": "Hello", "correct": false},
+      {"text": "Undefined behavior", "correct": true}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'typedef' keyword in C?",
+    "options": [
+      {"text": "To define new datatypes", "correct": true},
+      {"text": "To declare variables", "correct": false},
+      {"text": "To include header files", "correct": false},
+      {"text": "To create functions", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tprintf(\"%d\", x++);\n\treturn 0;\n}",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "6", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'break' statement in C?",
+    "options": [
+      {"text": "To exit the loop", "correct": true},
+      {"text": "To skip the current iteration", "correct": false},
+      {"text": "To continue to the next iteration", "correct": false},
+      {"text": "To end the program", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tint *p = &x;\n\tprintf(\"%p\", p);\n\treturn 0;\n}",
+    "options": [
+      {"text": "Memory address of x", "correct": true},
+      {"text": "Value of x", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'continue' statement in C?",
+    "options": [
+      {"text": "To exit the loop", "correct": false},
+      {"text": "To skip the current iteration", "correct": true},
+      {"text": "To continue to the next iteration", "correct": false},
+      {"text": "To end the program", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 10;\n\tprintf(\"%d\", x--);\n\treturn 0;\n}",
+    "options": [
+      {"text": "10", "correct": true},
+      {"text": "9", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'static' keyword in C?",
+    "options": [
+      {"text": "To declare global variables", "correct": false},
+      {"text": "To define constants", "correct": false},
+      {"text": "To specify the storage class", "correct": true},
+      {"text": "To include header files", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tint y = x << 2;\n\tprintf(\"%d\", y);\n\treturn 0;\n}",
+    "options": [
+      {"text": "20", "correct": true},
+      {"text": "10", "correct": false},
+      {"text": "5", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'exit()' function do in C?",
+    "options": [
+      {"text": "Terminates the program", "correct": true},
+      {"text": "Exits the loop", "correct": false},
+      {"text": "Returns a value", "correct": false},
+      {"text": "Pauses the program", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar *ptr;\n\tprintf(\"%d\", sizeof(ptr));\n\treturn 0;\n}",
+    "options": [
+      {"text": "4", "correct": true},
+      {"text": "8", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'union' keyword in C?",
+    "options": [
+      {"text": "To define a structure", "correct": false},
+      {"text": "To declare an array", "correct": false},
+      {"text": "To define multiple variables at once", "correct": false},
+      {"text": "To create a variable that can hold different data types", "correct": true}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint arr[] = {1, 2, 3, 4, 5};\n\tprintf(\"%d\", arr[5]);\n\treturn 0;\n}",
+    "options": [
+      {"text": "1", "correct": false},
+      {"text": "5", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": true}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'volatile' keyword in C?",
+    "options": [
+      {"text": "To declare a constant", "correct": false},
+      {"text": "To declare a variable", "correct": false},
+      {"text": "To specify that the variable may be changed unexpectedly", "correct": true},
+      {"text": "To declare a function", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar str[] = \"Hello World\";\n\tprintf(\"%c\", str[10]);\n\treturn 0;\n}",
+    "options": [
+      {"text": "o", "correct": false},
+      {"text": " ", "correct": false},
+      {"text": "\\0", "correct": false},
+      {"text": "Undefined behavior", "correct": true}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'const' keyword in C?",
+    "options": [
+      {"text": "To declare a constant", "correct": true},
+      {"text": "To declare a variable", "correct": false},
+      {"text": "To specify the storage class", "correct": false},
+      {"text": "To include header files", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 10;\n\tint *p = &x;\n\tprintf(\"%d\", *p++);\n\treturn 0;\n}",
+    "options": [
+      {"text": "10", "correct": true},
+      {"text": "11", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'feof()' function do in C?",
+    "options": [
+      {"text": "Checks if end of file is reached", "correct": true},
+      {"text": "Flushes the buffer", "correct": false},
+      {"text": "Opens a file", "correct": false},
+      {"text": "Closes a file", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'do-while' loop in C?",
+    "options": [
+      {"text": "To execute a block of code while a condition is true", "correct": true},
+      {"text": "To execute a block of code a certain number of times", "correct": false},
+      {"text": "To execute a block of code at least once before checking the condition", "correct": false},
+      {"text": "To exit the loop", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tint *p = &x;\n\tprintf(\"%d\", ++*p);\n\treturn 0;\n}",
+    "options": [
+      {"text": "6", "correct": true},
+      {"text": "5", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'sizeof' operator in C?",
+    "options": [
+      {"text": "To find the size of a file", "correct": false},
+      {"text": "To find the size of a datatype or variable", "correct": true},
+      {"text": "To find the size of a function", "correct": false},
+      {"text": "To find the size of a loop", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tprintf(\"%d\", x >> 1);\n\treturn 0;\n}",
+    "options": [
+      {"text": "2", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'fgets()' function do in C?",
+    "options": [
+      {"text": "Reads a line from a file", "correct": true},
+      {"text": "Writes a line to a file", "correct": false},
+      {"text": "Opens a file", "correct": false},
+      {"text": "Closes a file", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'goto' statement in C?",
+    "options": [
+      {"text": "To exit the loop", "correct": false},
+      {"text": "To skip the current iteration", "correct": false},
+      {"text": "To transfer control to a specified label", "correct": true},
+      {"text": "To continue to the next iteration", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tint y = x + 1;\n\tprintf(\"%d\", y);\n\treturn 0;\n}",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "6", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'fprintf()' function do in C?",
+    "options": [
+      {"text": "Reads a line from a file", "correct": false},
+      {"text": "Writes a line to a file", "correct": true},
+      {"text": "Opens a file", "correct": false},
+      {"text": "Closes a file", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'extern' keyword in C?",
+    "options": [
+      {"text": "To specify the storage class", "correct": false},
+      {"text": "To declare a global variable", "correct": true},
+      {"text": "To declare a constant", "correct": false},
+      {"text": "To include header files", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tprintf(\"%d\", sizeof(int));\n\treturn 0;\n}",
+    "options": [
+      {"text": "2", "correct": false},
+      {"text": "4", "correct": true},
+      {"text": "8", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'isdigit()' function do in C?",
+    "options": [
+      {"text": "Checks if a character is a digit", "correct": true},
+      {"text": "Converts a character to uppercase", "correct": false},
+      {"text": "Converts a character to lowercase", "correct": false},
+      {"text": "Checks if a character is alphanumeric", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'putc()' function in C?",
+    "options": [
+      {"text": "Reads a character from a file", "correct": false},
+      {"text": "Writes a character to a file", "correct": true},
+      {"text": "Opens a file", "correct": false},
+      {"text": "Closes a file", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'volatile' keyword in C?",
+    "options": [
+      {"text": "To declare a constant", "correct": false},
+      {"text": "To declare a variable", "correct": false},
+      {"text": "To specify that the variable may be changed unexpectedly", "correct": true},
+      {"text": "To declare a function", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar c = 'A';\n\tprintf(\"%c\", c + 1);\n\treturn 0;\n}",
+    "options": [
+      {"text": "A", "correct": false},
+      {"text": "B", "correct": true},
+      {"text": "C", "correct": false},
+      {"text": "Compiler error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'ftell()' function do in C?",
+    "options": [
+      {"text": "Checks if end of file is reached", "correct": false},
+      {"text": "Flushes the buffer", "correct": false},
+      {"text": "Returns the current position in a file", "correct": true},
+      {"text": "Moves the file pointer to a specified position", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'register' keyword in C?",
+    "options": [
+      {"text": "To specify the storage class", "correct": false},
+      {"text": "To declare a variable", "correct": false},
+      {"text": "To declare a global variable", "correct": false},
+      {"text": "To store variables in CPU registers for faster access", "correct": true}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar str[] = \"Hello\";\n\tprintf(\"%d\", strlen(str));\n\treturn 0;\n}",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "6", "correct": false},
+      {"text": "Compiler error", "correct": true},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the 'fflush()' function do in C?",
+    "options": [
+      {"text": "Checks if end of file is reached", "correct": false},
+      {"text": "Flushes the buffer", "correct": true},
+      {"text": "Returns the current position in a file", "correct": false},
+      {"text": "Moves the file pointer to a specified position", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'auto' keyword in C?",
+    "options": [
+      {"text": "To specify the storage class", "correct": false},
+      {"text": "To declare a variable", "correct": true},
+      {"text": "To declare a global variable", "correct": false},
+      {"text": "To store variables in CPU registers for faster access", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tchar str[] = \"Hello\";\n\tprintf(\"%c\", str[5]);\n\treturn 0;\n}",
+    "options": [
+      {"text": "o", "correct": false},
+      {"text": " ", "correct": false},
+      {"text": "\\0", "correct": false},
+      {"text": "Undefined behavior", "correct": true}
+    ]
+  },
+  {
+    "question": "What does the 'tolower()' function do in C?",
+    "options": [
+      {"text": "Converts a character to uppercase", "correct": false},
+      {"text": "Converts a character to lowercase", "correct": true},
+      {"text": "Checks if a character is a digit", "correct": false},
+      {"text": "Checks if a character is alphanumeric", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the purpose of the 'typedef' keyword in C?",
+    "options": [
+      {"text": "To define new datatypes", "correct": true},
+      {"text": "To declare variables", "correct": false},
+      {"text": "To include header files", "correct": false},
+      {"text": "To create functions", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following C code?\n\n#include <stdio.h>\nint main() {\n\tint x = 5;\n\tint *p = &x;\n\tprintf(\"%d\", *p--);\n\treturn 0;\n}",
+    "options": [
+      {"text": "5", "correct": true},
+      {"text": "4", "correct": false},
+      {"text": "Compiler error", "correct": false},
+      {"text": "Undefined behavior", "correct": false}
+    ]
+  }
+]
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+// Shuffle the questions array
+shuffleArray(questions);
+
+// Slice the array to get the first 10 questions
+const selectedQuestions = questions.slice(0, 20);
+
+// The rest of your existing code
+
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  nextButton.innerHTML = "Next";
+  showQuestion();
+}
+
+function showQuestion() {
+  resetState();
+  let currentQuestion = selectedQuestions[currentQuestionIndex];
+  let questionno = currentQuestionIndex + 1;
+  questionElement.innerHTML = questionno + ". " + currentQuestion.question;
+
+  currentQuestion.options.forEach((el) => {
+    const button = document.createElement("button");
+    button.innerHTML = el.text;
+    button.classList.add("btn-n");
+    answerButton.appendChild(button);
+    if (el.correct) {
+      button.dataset.correct = el.correct;
     }
-  }
-  
-  // Shuffle the questions array
-  shuffleArray(questions);
-  
-  // Slice the array to get the first 10 questions
-  const selectedQuestions = questions.slice(0, 10);
-  
-  // The rest of your existing code
-  
-  const questionElement = document.getElementById("question");
-  const answerButton = document.getElementById("answer-buttons");
-  const nextButton = document.getElementById("next-btn");
-  
-  let currentQuestionIndex = 0;
-  let score = 0;
-  
-  function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    nextButton.innerHTML = "Next";
-    showQuestion();
-  }
-  
-  function showQuestion() {
-    resetState();
-    let currentQuestion = selectedQuestions[currentQuestionIndex];
-    let questionno = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionno + ". " + currentQuestion.question;
-  
-    currentQuestion.options.forEach((el) => {
-      const button = document.createElement("button");
-      button.innerHTML = el.text;
-      button.classList.add("btn-n");
-      answerButton.appendChild(button);
-      if (el.correct) {
-        button.dataset.correct = el.correct;
-      }
-      button.addEventListener("click", selectAnswer);
-    });
-  }
+    button.addEventListener("click", selectAnswer);
+  });
+}
 
 function resetState()  {
 nextButton.style.display = 'none';

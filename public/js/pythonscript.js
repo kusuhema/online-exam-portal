@@ -1,252 +1,447 @@
 const questions = 
 [
-    {
-      "question": "What is the purpose of the 'len()' function in Python?",
-      "options": [
-        { "text": "Calculating logarithms", "correct": false },
-        { "text": "Finding the length of an iterable", "correct": true },
-        { "text": "Generating random numbers", "correct": false },
-        { "text": "Converting to lowercase", "correct": false }
-      ]
-    },
-    {
-      "question": "How do you comment a single-line in Python?",
-      "options": [
-        { "text": "// This is a comment", "correct": false },
-        { "text": "# This is a comment", "correct": true },
-        { "text": "/* This is a comment */", "correct": false },
-        { "text": "-- This is a comment", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'print()' function in Python?",
-      "options": [
-        { "text": "Printing documents", "correct": false },
-        { "text": "Displaying output on the console", "correct": true },
-        { "text": "Calculating mathematical expressions", "correct": false },
-        { "text": "Reading user input", "correct": false }
-      ]
-    },
-    {
-      "question": "Which keyword is used to define a function in Python?",
-      "options": [
-        { "text": "func", "correct": false },
-        { "text": "define", "correct": false },
-        { "text": "function", "correct": false },
-        { "text": "def", "correct": true }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'range()' function in Python?",
-      "options": [
-        { "text": "Generating a list of numbers", "correct": true },
-        { "text": "Checking the length of a string", "correct": false },
-        { "text": "Creating a random range of values", "correct": false },
-        { "text": "Filtering elements in a list", "correct": false }
-      ]
-    },
-    {
-      "question": "How do you open a file in Python?",
-      "options": [
-        { "text": "openFile()", "correct": false },
-        { "text": "file.open()", "correct": false },
-        { "text": "open()", "correct": true },
-        { "text": "readFile()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'strip()' method for strings in Python?",
-      "options": [
-        { "text": "Removing leading and trailing whitespace", "correct": true },
-        { "text": "Concatenating two strings", "correct": false },
-        { "text": "Splitting a string into a list", "correct": false },
-        { "text": "Reversing the characters in a string", "correct": false }
-      ]
-    },
-    {
-      "question": "Which data type is used to store a sequence of characters in Python?",
-      "options": [
-        { "text": "int", "correct": false },
-        { "text": "list", "correct": false },
-        { "text": "str", "correct": true },
-        { "text": "float", "correct": false }
-      ]
-    },
-    {
-      "question": "What does the 'if' statement do in Python?",
-      "options": [
-        { "text": "Declares a function", "correct": false },
-        { "text": "Loops through a sequence", "correct": false },
-        { "text": "Performs conditional execution of code", "correct": true },
-        { "text": "Defines a class", "correct": false }
-      ]
-    },
-    {
-      "question": "Which operator is used for exponentiation in Python?",
-      "options": [
-        { "text": "^", "correct": false },
-        { "text": "*", "correct": false },
-        { "text": "**", "correct": true },
-        { "text": "//", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'list()' function in Python?",
-      "options": [
-        { "text": "Creating a list of numbers", "correct": false },
-        { "text": "Converting a tuple to a list", "correct": true },
-        { "text": "Checking if an item is in a list", "correct": false },
-        { "text": "Sorting elements in a list", "correct": false }
-      ]
-    },
-    {
-      "question": "Which loop is used for iterating over a sequence of items in Python?",
-      "options": [
-        { "text": "for", "correct": true },
-        { "text": "while", "correct": false },
-        { "text": "do-while", "correct": false },
-        { "text": "foreach", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'try' and 'except' blocks in Python?",
-      "options": [
-        { "text": "Defining a function", "correct": false },
-        { "text": "Handling exceptions and errors", "correct": true },
-        { "text": "Executing a loop", "correct": false },
-        { "text": "Importing modules", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to find the index of a specific element in a list?",
-      "options": [
-        { "text": "search()", "correct": false },
-        { "text": "find()", "correct": false },
-        { "text": "index()", "correct": true },
-        { "text": "locate()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'global' keyword in Python?",
-      "options": [
-        { "text": "Declaring a variable inside a function", "correct": false },
-        { "text": "Defining a constant", "correct": false },
-        { "text": "Indicating a variable is global in scope", "correct": true },
-        { "text": "Importing a module", "correct": false }
-      ]
-    },
-    {
-      "question": "Which module is used for handling dates and times in Python?",
-      "options": [
-        { "text": "time", "correct": false },
-        { "text": "datetime", "correct": true },
-        { "text": "date", "correct": false },
-        { "text": "calendar", "correct": false }
-      ]
-    },
-    {
-      "question": "How do you create a tuple in Python?",
-      "options": [
-        { "text": "tuple = [1, 2, 3]", "correct": false },
-        { "text": "tuple(1, 2, 3)", "correct": false },
-        { "text": "tuple = (1, 2, 3)", "correct": true },
-        { "text": "tuple(1)(2)(3)", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'min()' function in Python?",
-      "options": [
-        { "text": "Finding the minimum value in an iterable", "correct": true },
-        { "text": "Checking the length of a string", "correct": false },
-        { "text": "Generating a random number", "correct": false },
-        { "text": "Converting to lowercase", "correct": false }
-      ]
-    },
-    {
-      "question": "Which statement is used for raising exceptions in Python?",
-      "options": [
-        { "text": "throw", "correct": false },
-        { "text": "raise", "correct": true },
-        { "text": "exception", "correct": false },
-        { "text": "try-catch", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'set()' data type in Python?",
-      "options": [
-        { "text": "Sorting elements in a list", "correct": false },
-        { "text": "Storing key-value pairs", "correct": false },
-        { "text": "Removing duplicates from a sequence", "correct": true },
-        { "text": "Creating a stack", "correct": false }
-      ]
-    },
-    {
-      "question": "Which operator is used for floor division in Python?",
-      "options": [
-        { "text": "//", "correct": true },
-        { "text": "/", "correct": false },
-        { "text": "%", "correct": false },
-        { "text": "**", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'import' statement in Python?",
-      "options": [
-        { "text": "Exporting variables", "correct": false },
-        { "text": "Importing modules", "correct": true },
-        { "text": "Including HTML files", "correct": false },
-        { "text": "Defining constants", "correct": false }
-      ]
-    },
-    {
-      "question": "How do you check if a key exists in a dictionary in Python?",
-      "options": [
-        { "text": "containsKey()", "correct": false },
-        { "text": "keyExists()", "correct": false },
-        { "text": "hasKey()", "correct": false },
-        { "text": "in", "correct": true }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'ord()' function in Python?",
-      "options": [
-        { "text": "Converting a number to its hexadecimal representation", "correct": false },
-        { "text": "Finding the Unicode code point of a character", "correct": true },
-        { "text": "Calculating the absolute value of a number", "correct": false },
-        { "text": "Rounding a floating-point number", "correct": false }
-      ]
-    },
-    {
-      "question": "Which method is used to append elements to a list in Python?",
-      "options": [
-        { "text": "append()", "correct": true },
-        { "text": "add()", "correct": false },
-        { "text": "insert()", "correct": false },
-        { "text": "extend()", "correct": false }
-      ]
-    },
-    {
-      "question": "What is the purpose of the 'sorted()' function in Python?",
-      "options": [
-        { "text": "Sorting elements in a list in-place", "correct": false },
-        { "text": "Creating a new sorted list", "correct": true },
-        { "text": "Reversing the order of elements in a list", "correct": false },
-        { "text": "Shuffling elements in a list", "correct": false }
-      ]
-    },
-    {
-      "question": "How do you remove an item from a list in Python?",
-      "options": [
-        { "text": "remove()", "correct": false },
-        { "text": "erase()", "correct": false },
-        { "text": "discard()", "correct": false },
-        { "text": "pop()", "correct": true }
-      ]
-    }
-  ]
-  
-
-  
+  {
+    "question": "What is the output of the following code?\n\nx = 5\nx += 3\nprint(x)",
+    "options": [
+      {"text": "5", "correct": false},
+      {"text": "8", "correct": true},
+      {"text": "3", "correct": false},
+      {"text": "15", "correct": false}
+    ]
+  },
+  {
+    "question": "What will be the output of the following code snippet?\n\nprint('hello' * 3)",
+    "options": [
+      {"text": "'hellohellohello'", "correct": true},
+      {"text": "'hello'", "correct": false},
+      {"text": "'hellohello'", "correct": false},
+      {"text": "'hellohellohellohello'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\na = [1, 2, 3]\nb = a\na.append(4)\nprint(b)",
+    "options": [
+      {"text": "[1, 2, 3]", "correct": false},
+      {"text": "[1, 2, 3, 4]", "correct": true},
+      {"text": "[1, 2, 3, 4]", "correct": false},
+      {"text": "[1, 2, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nprint(len(range(0, 10, -1)))",
+    "options": [
+      {"text": "10", "correct": false},
+      {"text": "9", "correct": false},
+      {"text": "0", "correct": true},
+      {"text": "1", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = '5'\nprint(x * 3)",
+    "options": [
+      {"text": "'555'", "correct": true},
+      {"text": "15", "correct": false},
+      {"text": "'5'*3", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = 'hello'\nprint(x[10:])",
+    "options": [
+      {"text": "''", "correct": true},
+      {"text": "IndexError", "correct": false},
+      {"text": "'o'", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x[3:])",
+    "options": [
+      {"text": "[]", "correct": true},
+      {"text": "[3]", "correct": false},
+      {"text": "IndexError", "correct": false},
+      {"text": "[1, 2, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x[0:10])",
+    "options": [
+      {"text": "[1, 2, 3]", "correct": true},
+      {"text": "[1, 2, 3, 1, 2, 3, 1, 2, 3, 1]", "correct": false},
+      {"text": "IndexError", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = ['a', 'b', 'c']\ny = x\nx[0] = 'z'\nprint(y)",
+    "options": [
+      {"text": "['a', 'b', 'c']", "correct": false},
+      {"text": "['z', 'b', 'c']", "correct": true},
+      {"text": "['a', 'b', 'c', 'z']", "correct": false},
+      {"text": "['z', 'b', 'c', 'z']", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = [1, 2, 3]\nx = x[-1:]\nprint(x)",
+    "options": [
+      {"text": "[3]", "correct": true},
+      {"text": "[1, 2]", "correct": false},
+      {"text": "[]", "correct": false},
+      {"text": "[2, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x[-1:-2])",
+    "options": [
+      {"text": "[]", "correct": true},
+      {"text": "[3]", "correct": false},
+      {"text": "[2]", "correct": false},
+      {"text": "[3, 2]", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = [1, 2, 3]\nx += [4, 5]\nprint(x)",
+    "options": [
+      {"text": "[1, 2, 3, 4, 5]", "correct": true},
+      {"text": "[1, 2, 3, [4, 5]]", "correct": false},
+      {"text": "[1, 2, 3, 4], [5]", "correct": false},
+      {"text": "[1, 2, 3], [4, 5]", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = [1, 2, 3]\nx.extend([4, 5])\nprint(x)",
+    "options": [
+      {"text": "[1, 2, 3, 4, 5]", "correct": true},
+      {"text": "[1, 2, 3, [4, 5]]", "correct": false},
+      {"text": "[1, 2, 3, 4], [5]", "correct": false},
+      {"text": "[1, 2, 3], [4, 5]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\ny = x[:2] + 'p' + x[3:]\nprint(y)",
+    "options": [
+      {"text": "'helpo'", "correct": true},
+      {"text": "'help'", "correct": false},
+      {"text": "'hollo'", "correct": false},
+      {"text": "'heppo'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x.find('l'))",
+    "options": [
+      {"text": "2", "correct": true},
+      {"text": "3", "correct": false},
+      {"text": "1", "correct": false},
+      {"text": "-1", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x.index('l'))",
+    "options": [
+      {"text": "2", "correct": true},
+      {"text": "3", "correct": false},
+      {"text": "1", "correct": false},
+      {"text": "-1", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = 'hello'\nprint(x.replace('l', 'p'))",
+    "options": [
+      {"text": "'heppo'", "correct": true},
+      {"text": "'hello'", "correct": false},
+      {"text": "'heppo'", "correct": false},
+      {"text": "'helpo'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x.split('e'))",
+    "options": [
+      {"text": "['h', 'llo']", "correct": true},
+      {"text": "['hello']", "correct": false},
+      {"text": "['h', 'e', 'l', 'l', 'o']", "correct": false},
+      {"text": "['h', 'ell', 'o']", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x.startswith('he'))",
+    "options": [
+      {"text": "True", "correct": true},
+      {"text": "False", "correct": false},
+      {"text": "Error", "correct": false},
+      {"text": "None", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = 'hello'\nprint(x.upper())",
+    "options": [
+      {"text": "'HELLO'", "correct": true},
+      {"text": "'hello'", "correct": false},
+      {"text": "'hEllo'", "correct": false},
+      {"text": "'heLLo'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x.strip('h'))",
+    "options": [
+      {"text": "'ello'", "correct": true},
+      {"text": "'hello'", "correct": false},
+      {"text": "'h'", "correct": false},
+      {"text": "'helloh'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x[::-1])",
+    "options": [
+      {"text": "'olleh'", "correct": true},
+      {"text": "'hello'", "correct": false},
+      {"text": "'olle'", "correct": false},
+      {"text": "'oleh'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = 'hello'\nprint(x[1:])",
+    "options": [
+      {"text": "'ello'", "correct": true},
+      {"text": "'h'", "correct": false},
+      {"text": "'hell'", "correct": false},
+      {"text": "'olleh'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x.pop())",
+    "options": [
+      {"text": "3", "correct": true},
+      {"text": "1", "correct": false},
+      {"text": "2", "correct": false},
+      {"text": "[1, 2]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x.pop(0))",
+    "options": [
+      {"text": "1", "correct": true},
+      {"text": "3", "correct": false},
+      {"text": "2", "correct": false},
+      {"text": "[2, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nx.remove(2)\nprint(x)",
+    "options": [
+      {"text": "[1, 3]", "correct": true},
+      {"text": "[1, 2, 3]", "correct": false},
+      {"text": "[1, 3, 2]", "correct": false},
+      {"text": "[2, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nx.reverse()\nprint(x)",
+    "options": [
+      {"text": "[3, 2, 1]", "correct": true},
+      {"text": "[1, 2, 3]", "correct": false},
+      {"text": "[3, 1, 2]", "correct": false},
+      {"text": "[2, 1, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nx.sort()\nprint(x)",
+    "options": [
+      {"text": "[1, 2, 3]", "correct": true},
+      {"text": "[3, 2, 1]", "correct": false},
+      {"text": "[1, 3, 2]", "correct": false},
+      {"text": "[2, 1, 3]", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.get('c', 3))",
+    "options": [
+      {"text": "3", "correct": true},
+      {"text": "None", "correct": false},
+      {"text": "'c'", "correct": false},
+      {"text": "'3'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.keys())",
+    "options": [
+      {"text": "dict_keys(['a', 'b'])", "correct": true},
+      {"text": "['a', 'b']", "correct": false},
+      {"text": "('a', 'b')", "correct": false},
+      {"text": "dict_values([1, 2])", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.values())",
+    "options": [
+      {"text": "dict_values([1, 2])", "correct": true},
+      {"text": "['a', 'b']", "correct": false},
+      {"text": "('a', 'b')", "correct": false},
+      {"text": "dict_keys(['a', 'b'])", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.items())",
+    "options": [
+      {"text": "dict_items([('a', 1), ('b', 2)])", "correct": true},
+      {"text": "['a', 'b']", "correct": false},
+      {"text": "('a', 'b')", "correct": false},
+      {"text": "dict_values([1, 2])", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = {'a': 1, 'b': 2}\ny = x\nx['a'] = 3\nprint(y)",
+    "options": [
+      {"text": "{'a': 3, 'b': 2}", "correct": true},
+      {"text": "{'a': 1, 'b': 2}", "correct": false},
+      {"text": "{'a': 3, 'b': 3}", "correct": false},
+      {"text": "{'a': 1, 'b': 3}", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = {'a': 1, 'b': 2}\ny = x.copy()\nx['a'] = 3\nprint(y)",
+    "options": [
+      {"text": "{'a': 1, 'b': 2}", "correct": true},
+      {"text": "{'a': 3, 'b': 2}", "correct": false},
+      {"text": "{'a': 3, 'b': 3}", "correct": false},
+      {"text": "{'a': 1, 'b': 3}", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.pop('a'))",
+    "options": [
+      {"text": "1", "correct": true},
+      {"text": "2", "correct": false},
+      {"text": "{'a': 1}", "correct": false},
+      {"text": "'a'", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.popitem())",
+    "options": [
+      {"text": "('b', 2)", "correct": true},
+      {"text": "('a', 1)", "correct": false},
+      {"text": "{'a': 1}", "correct": false},
+      {"text": "{'b': 2}", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nx.clear()\nprint(x)",
+    "options": [
+      {"text": "{}", "correct": true},
+      {"text": "{'a': 1, 'b': 2}", "correct": false},
+      {"text": "None", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = {'a': 1, 'b': 2}\nx.update({'a': 3, 'c': 4})\nprint(x)",
+    "options": [
+      {"text": "{'a': 3, 'b': 2, 'c': 4}", "correct": true},
+      {"text": "{'a': 3, 'b': 2}", "correct": false},
+      {"text": "{'a': 1, 'b': 2, 'c': 4}", "correct": false},
+      {"text": "{'a': 1, 'b': 2, 'c': 4}", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = {'a': 1, 'b': 2}\nx.setdefault('c', 3)\nprint(x)",
+    "options": [
+      {"text": "{'a': 1, 'b': 2, 'c': 3}", "correct": true},
+      {"text": "{'a': 1, 'b': 2}", "correct": false},
+      {"text": "{'a': 1, 'b': 2, 'c': 1}", "correct": false},
+      {"text": "{'a': 1, 'b': 2, 'c': None}", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = {'a': 1, 'b': 2}\nx.setdefault('a', 3)\nprint(x)",
+    "options": [
+      {"text": "{'a': 1, 'b': 2}", "correct": true},
+      {"text": "{'a': 3, 'b': 2}", "correct": false},
+      {"text": "{'a': 1, 'b': 2, 'a': 3}", "correct": false},
+      {"text": "{'a': 1, 'b': 2, 'a': None}", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x.__len__())",
+    "options": [
+      {"text": "3", "correct": true},
+      {"text": "1", "correct": false},
+      {"text": "2", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = (1, 2, 3)\nprint(len(x))",
+    "options": [
+      {"text": "3", "correct": true},
+      {"text": "1", "correct": false},
+      {"text": "2", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x.__getitem__(1))",
+    "options": [
+      {"text": "2", "correct": true},
+      {"text": "1", "correct": false},
+      {"text": "3", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = [1, 2, 3]\nprint(x[1])",
+    "options": [
+      {"text": "2", "correct": true},
+      {"text": "1", "correct": false},
+      {"text": "3", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = (1, 2, 3)\nprint(x[1])",
+    "options": [
+      {"text": "2", "correct": true},
+      {"text": "1", "correct": false},
+      {"text": "3", "correct": false},
+      {"text": "Error", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint(x.__contains__('a'))",
+    "options": [
+      {"text": "True", "correct": true},
+      {"text": "False", "correct": false},
+      {"text": "Error", "correct": false},
+      {"text": "None", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint('a' in x)",
+    "options": [
+      {"text": "True", "correct": true},
+      {"text": "False", "correct": false},
+      {"text": "Error", "correct": false},
+      {"text": "None", "correct": false}
+    ]
+  },
+  {
+    "question": "What is the output of the following code?\n\nx = {'a': 1, 'b': 2}\nprint('c' in x)",
+    "options": [
+      {"text": "False", "correct": true},
+      {"text": "True", "correct": false},
+      {"text": "Error", "correct": false},
+      {"text": "None", "correct": false}
+    ]
+  },
+  {
+    "question": "What does the following code output?\n\nx = {'a': 1, 'b': 2}\ny = x\nx['a'] = 3\nprint(y)",
+    "options": [
+      {"text": "{'a': 3, 'b': 2}", "correct": true},
+      {"text": "{'a': 1, 'b': 2}", "correct": false},
+      {"text": "{'a': 3, 'b': 3}", "correct": false},
+      {"text": "{'a': 1, 'b': 3}", "correct": false}
+    ]
+  }
+]
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -259,7 +454,7 @@ const questions =
   shuffleArray(questions);
   
   // Slice the array to get the first 10 questions
-  const selectedQuestions = questions.slice(0, 10);
+  const selectedQuestions = questions.slice(0, 20);
   
   // The rest of your existing code
   

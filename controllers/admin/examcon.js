@@ -78,7 +78,7 @@ module.exports.deleteExam = async(req,res)=>{
         await Exam.findByIdAndDelete(id);
         await examEnrollment.deleteMany({ examId: id });
         await Questions.deleteMany({exam : id })
-        req.flash("error","Exam is deleted");
+        req.flash("success","Exam is deleted");
     } catch (error) {
         console.error("Error:", error);
         res.render("templates/internalerror.ejs")

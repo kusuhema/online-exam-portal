@@ -10,7 +10,6 @@ const Reviews = require("../../models/reviews.js")
 module.exports.showExams = async(req,res)=>{
     try {
         const exam = await Exam.find();
-        req.flash("success","Welcome to Student Assessment system");
         res.render("student/displayexam.ejs",{exam})
     }catch(error){
         console.error("Error:", error);
