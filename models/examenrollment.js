@@ -12,6 +12,10 @@ const enrollmentRequestSchema = new Schema({
         ref: 'Exam',
         required : true
     },
+    lastdate : {
+        type : String,
+        required : true
+    },
     examname :{
         type : String,
         required : true

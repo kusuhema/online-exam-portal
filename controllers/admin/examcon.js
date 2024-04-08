@@ -20,13 +20,14 @@ module.exports.addExamDetails = async(req,res)=>{
 
 module.exports.exam = async(req,res)=>{
     try {
-        const{examName,duration,category,totalMarks,passingMarks} =req.body;
+        const{examName,duration,category,totalMarks,passingMarks,end} =req.body;
         const newExam = new Exam ({
             examName : examName ,
             duration : duration,
             category: category,
             totalMarks:totalMarks,
             passingMarks:passingMarks,
+            end_date : end
         })
         await newExam.save();
         req.flash("success","new exam was Created");
@@ -262,4 +263,15 @@ module.exports.delfeed = async(req,res)=>{
         console.error("Error:", error);
         res.render("templates/internalerror.ejs")
     }
+}
+
+module.exports.showuser = async(req,res)=>{
+    const userdata = await user.find();
+    res.render("admin/userdata.ejs",{userdata})
+};
+
+module.exports.deluser = async(req,res)=>{
+    const {id} = req.params;
+    await user.findByIdAndDelete(id);
+    res.redirect("/userdata")
 }

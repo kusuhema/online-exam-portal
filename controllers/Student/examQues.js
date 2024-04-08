@@ -25,12 +25,14 @@ module.exports.requestEnrollment = async(req,res)=>{
         const {examid} = req.params;
         const exam = await Exam.findById(examid);
         const examName = exam.examName;
+        const enddate = exam.end_date
 
         const enrollment = new EnrollmentRequest ({
             studentId : userid,
             examId : examid,
             examname : examName,
-            student : userName
+            student : userName,
+            lastdate : enddate
         });
         await enrollment.save();
        
@@ -170,6 +172,18 @@ module.exports.records = async(req,res)=>{
     }
 }
 
+module.exports.delrecord = async(req,res)=>{
+    try {
+        const {id} = req.params
+        await StudentPerformance.findByIdAndDelete(id);
+        await res.redirect("/student/record")
+    } catch (error) {
+        console.error("Error:", error);
+        res.render("templates/internalerror.ejs")
+    }
+}
+
+
 module.exports.filterRecords = async (req, res) => {
     try {
         const { examName, filterDate } = req.body;
@@ -194,7 +208,6 @@ module.exports.dashboard = async(req,res)=>{
         const userid = req.user._id;
         const userWithReports = await user.findById(userid).populate("records");
         const userWithEnrolledExams = await user.findById(userid).populate("enrolled");
-
          // Sort records by most recent first
          userWithReports.records.sort((a, b) => b.created_at - a.created_at);
 

@@ -44,8 +44,10 @@
               <input type="number" class="form-control" id="passingMarks" name="exam[passingMarks]" value="<%= exam.passingMarks %>" style="border: 1px solid #555; font-size: 1rem;" required>
           </div>
           <div class="mb-3 col">
-            <input type="hidden">
-          </div>
+            <label for="date" class="form-label">Last Date</label>
+            <input type="text" class="form-control" id="date" name="exam[end_date]" value="<%= exam.end_date %>" style="border: 1px solid #555; font-size: 1rem;" required>
+        </div>
+          
         </div>
         <div class="save-btn"> 
           <button class="btn btn-outline-success">Save</button>

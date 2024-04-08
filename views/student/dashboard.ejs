@@ -72,25 +72,30 @@
             </div>
         </div>
         <div class="container contsin">
-            <h2 id=font>Enrolled Exams</h2>
+            <h2 id=font>Enrolled <span style="color :#fc983b;">Exams</span></h2>
                 <div class="contsin">
                     <% for(enrolled of enroll.enrolled) { %>
                         <div class="created-exam">
                             <div class="created-exam-sub">
                                 <div class="top-section mb-4">
-                                    <li id="eex"><%= enrolled.examname %></li>
-                                    <% if(enrolled.status === "approved") { %>
-                                        <li id="ees" style="background-color: green;"><i class="fa-regular fa-circle-check" style="padding-right: 10px;"></i><%= enrolled.status %></li> 
-                                    <%}%>   
-                                    <% if(enrolled.status === "rejected") { %>
-                                        <p id="ees" style="background-color: red;"> 
-                                            <i class="fa-solid fa-circle-exclamation" style="padding-right: 5px;"></i>
-                                            <%= enrolled.status %>
-                                        </p> 
-                                    <%}%>    
-                                    <% if(enrolled.status === "pending") { %>
-                                        <li id="ees" style="background-color:#FFA500;"><i class="fa-solid fa-clock" style="padding-right: 5px;"></i><%= enrolled.status %></li> 
-                                    <%}%>                             
+                                    <div>
+                                        <li id="eex"><%= enrolled.examname %></li><br>
+                                        <li style="font-weight: 600;">Last Date : <%= enrolled.lastdate %></li>
+                                    </div>
+                                    <div>
+                                        <% if(enrolled.status === "approved") { %>
+                                            <li id="ees" style="background-color: green;"><i class="fa-regular fa-circle-check" style="padding-right: 10px;"></i><%= enrolled.status %></li> 
+                                        <%}%>   
+                                        <% if(enrolled.status === "rejected") { %>
+                                            <p id="ees" style="background-color: red;"> 
+                                                <i class="fa-solid fa-circle-exclamation" style="padding-right: 5px;"></i>
+                                                <%= enrolled.status %>
+                                            </p> 
+                                        <%}%>    
+                                        <% if(enrolled.status === "pending") { %>
+                                            <li id="ees" style="background-color:#FFA500;"><i class="fa-solid fa-clock" style="padding-right: 5px;"></i><%= enrolled.status %></li> 
+                                        <%}%>   
+                                    </div>                         
                                 </div>
                                 <div class="row">
                                     <div class=" exam-start-button">
@@ -105,7 +110,7 @@
                 </div>    
         </div>   
         <div class="dashboard-div-2 mt-4">
-            <h2 style="font-weight: 600;">Test Results</h2>
+            <h2 style="font-weight: 600;">Test <span style="color: #fc983b;">Results</span></h2>
             <div class="exam-section mt-2">
                 <div class="container text-center ">
                     <div class="row">

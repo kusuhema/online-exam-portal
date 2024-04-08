@@ -22,6 +22,9 @@
                 <div class="col border exam-section-column">
                     <strong>Date</strong>
                 </div>
+                <div class="col border exam-section-column">
+                    <strong>Last Date</strong>
+                </div>
                 <div class="col border exam-section-columns">
                     <strong>Duration</strong>
                 </div>
@@ -48,6 +51,9 @@
                     </div> 
                     <div class="col border exam-section-column">
                         <%= examDetail.created_at.toLocaleDateString() %>
+                    </div> 
+                    <div class="col border exam-section-column">
+                        <%= examDetail.end_date %>
                     </div> 
                     <div class="col border exam-section-column">
                         <%= examDetail.duration %>

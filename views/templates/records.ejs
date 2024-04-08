@@ -37,7 +37,7 @@
 
 <div class="container exam-section mt-3 mb-3">
     <div class="filter-text">
-        <h1>Students Results</h1>
+        <h1 style="font-weight: 600;">Students <span style="color: #fc983b;">Results</span></h1>
     </div>
    
     <div class="filter mt-5">
@@ -85,6 +85,9 @@
             <div class="col border exam-section-columns">
                 <strong>Pass/Fail</strong>
             </div>
+            <div class="col border exam-section-columns">
+                <strong>Action</strong>
+            </div>
     
         </div>
     </div>    
@@ -116,6 +119,11 @@
                 </div>
                 <div class="col border exam-section-columns">
                     <%= answer.vedrict %>
+                </div>
+                <div class="col border exam-section-columns">
+                    <form action="/record/<%= answer._id %>/delete?_method=DELETE" method="post">
+                        <button class="btn btn-dark">Delete</button>
+                    </form>
                 </div>
               </div>
        <% } %>

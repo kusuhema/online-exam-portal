@@ -27,6 +27,10 @@ const adminExamSchema = new Schema({
         type : Date,
         default : Date.now(),
     },
+    end_date : {
+        type : String,
+        required : true
+    },
     questions: [
         {
            type: Schema.Types.ObjectId, 

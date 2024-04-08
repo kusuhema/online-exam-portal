@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate.ejs") %>  
+
+<style>
+    .userdata {
+        padding-bottom: 2rem;
+        margin-bottom: 2px solid #eee;
+    }
+    .userdata h1 {
+        font-weight: 600;
+    }
+    .userdata h1 span{
+        color: #fc983b;
+    }
+    .datauser {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        font-weight: 600;
+        
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="userdata">
+        <h1>USER <span>DATA</span></h1>
+    </div>
+    <div class="row">
+        <div class="col-3 border datauser">
+            <p>UserName</p>
+        </div>
+        <div class="col-3 border datauser">
+            <p>userID</p>
+        </div>
+        <div class="col-3 border datauser">
+            <p>Email</p>
+        </div>
+        <div class="col-3 border datauser">
+           <p>Action</p>
+        </div>
+    </div>    
+    <% for(data of userdata) { %>
+        <div class="row">
+            <div class="col-3 border datauser">
+                <p><%= data.username %></p>
+            </div>
+            <div class="col-3 border datauser">
+                <p>login</p>
+            </div>
+            <div class="col-3 border datauser">
+                <p><%= data.email %></p>
+            </div>
+            <div class="col-3 border datauser">
+                <form action="/userdata/<%= data._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-dark">Delete</button>
+                </form>
+            </div>
+        </div>
+    <% }%>
+</div>

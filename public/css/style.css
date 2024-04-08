@@ -80,7 +80,8 @@ button {
 
 }
 .login-password,
-.login-username{
+.login-username,
+.input-email{
   position: relative;
   width: 25rem;
   display: flex;
@@ -89,7 +90,8 @@ button {
 }
 
 .login-password i,
-.login-username i{
+.login-username i,
+.input-email i{
   position: absolute;
   left: 10px; /* Adjust the left position as needed */
   color: #000; /* Icon color */
@@ -469,9 +471,14 @@ button {
   margin: 10px;
 }
 
+/* examQuestions page */
+.ttbuttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 /* homePage */
-
-
 .second-section {
   margin: 1.5rem;
   display: flex;
@@ -846,7 +853,7 @@ button {
 }
 
 .about-right h1 {
-    color: #e74d06;
+    color: #fc983b;
     font-size: 37px;
     margin-bottom: 5px;
 }
@@ -867,7 +874,7 @@ button {
 
 .address .address-logo {
     margin-right: 15px;
-    color: #e74d06;
+    color: #fc983b;
 }
 
 .address .saprater {
@@ -888,7 +895,7 @@ button {
 .expertise .expertise-logo {
     font-size: 19px;
     margin-right: 10px;
-    color: #e74d06;
+    color: #fc983b;
 }
 
 #about-font {
@@ -905,7 +912,7 @@ button {
 
 .review-heading h1 span {
   font-weight: 600;
-  color: #e74d06;
+  color: #fc983b;
 }
 
 .Addreview {
@@ -1031,3 +1038,4 @@ button {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 };
 
+/* admin userdata */
