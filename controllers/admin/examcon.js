@@ -1,9 +1,22 @@
+const nodemailer = require('nodemailer');
 const Exam = require("../../models/exam.js");
 const Questions = require("../../models/questions.js");
 const examEnrollment = require("../../models/examenrollment.js")
 const mongoose = require("mongoose");
 const user = require("../../models/users.js");
-const contact = require("../../models/contact.js")
+const contact = require("../../models/contact.js");
+
+// // Create a nodemailer transporter
+// const transporter = nodemailer.createTransport({
+//     service: 'Gmail', // e.g., 'Gmail', 'Outlook'
+//     auth: {
+//         user: 'abbashussainah2239@gmail.com',
+//         pass: 'Rangerog@000'
+//     }
+// });
+
+// // Function to send email
+// console.error("Error sending email: ", error);
 
 
 
@@ -205,10 +218,33 @@ module.exports.studentRequests = async(req,res)=>{
 exports.approveEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
+        const enrollStudent = await examEnrollment.findById(id);
+        const studentid = enrollStudent.studentId;
+        const curr = await user.findById(studentid);
+        const userEmail = curr.email;
         let list = await examEnrollment.findByIdAndUpdate(id, { status: 'approved' });
+        //sending mail 
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASSWORD
+            }
+        });
+
+        // Send email
+        const info = await transporter.sendMail({
+            from: process.env.MAIL_USER,
+            to: userEmail,
+            subject: 'Your enrollment has been approved',
+            text: 'Your enrollment for the exam has been approved.'
+        });
+
+        // console.log("Email sent: ", info.response);
         res.redirect(`/approveExam/${list.examId}/student`);
     } catch (error) {
         console.error("Error:", error);
+        console.error("Error sending email: ", error);
         res.render("templates/internalerror.ejs")
     }
 };
@@ -216,7 +252,30 @@ exports.approveEnrollment = async (req, res) => {
 exports.rejectEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
+        const enrollStudent = await examEnrollment.findById(id);
+        const studentid = enrollStudent.studentId;
+        const curr = await user.findById(studentid);
+        const emailid = curr.email;
+
        let list = await examEnrollment.findByIdAndUpdate(id, { status: 'rejected' });
+       const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD
+        }
+    });
+
+    // Send email
+    const info = await transporter.sendMail({
+        from: process.env.MAIL_USER,
+        to: emailid,
+        subject: 'Your enrollment has been rejected',
+        text: 'Your enrollment for the exam has been rejected.'
+    });
+
+    // console.log("Email sent: ", info.response);
+
         res.redirect(`/approveExam/${list.examId}/student`);
     } catch (error) {
         console.error("Error:", error);
