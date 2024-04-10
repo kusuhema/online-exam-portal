@@ -13,7 +13,7 @@ const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPrat
 
 // user login and signup routes
  
-router.get("verify-email",verifyUser);
+router.get("/verify-email",verifyUser);
 
 router.get("/login",login);
 
