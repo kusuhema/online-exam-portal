@@ -21,13 +21,6 @@ const userSchema = new Schema ({
             required : true
         }
     ],
-    emailVerified : {
-        type : String,
-        default : false,
-    },
-    verificationToken  : {
-        type : String,
-    }
 });
 
 userSchema.plugin(passportLocalMongoose);
