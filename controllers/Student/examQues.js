@@ -1,3 +1,4 @@
+const nodemailer = require('nodemailer');
 const Exam = require("../../models/exam.js");
 const questions = require("../../models/questions.js");
 const user = require("../../models/users.js")
@@ -25,7 +26,9 @@ module.exports.requestEnrollment = async(req,res)=>{
         const {examid} = req.params;
         const exam = await Exam.findById(examid);
         const examName = exam.examName;
-        const enddate = exam.end_date
+        const enddate = exam.end_date;
+        const userdetails = await user.findById(userid);
+        const userEmail = userdetails.email;
 
         const enrollment = new EnrollmentRequest ({
             studentId : userid,
@@ -39,6 +42,40 @@ module.exports.requestEnrollment = async(req,res)=>{
          await Exam.findByIdAndUpdate(examid, { $push: { enrolled: enrollment._id } });
          await user.findByIdAndUpdate(userid, { $push: { enrolled: enrollment._id } });
          req.flash("success","your are Enrollment was successfull");
+                //sending mail 
+                const transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: process.env.MAIL_USER,
+                        pass: process.env.MAIL_PASSWORD
+                    }
+                });
+        
+                // Send email
+                const info = await transporter.sendMail({
+                    from: userEmail,
+                    to: process.env.MAIL_USER,
+                    subject: 'New enrollment request for the exam',
+                    text: 'A new enrollment request for the exam is available.',
+                    html: `
+                        <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+                            <div style="background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                                <h2 style="color: #333;">New Enrollment Request</h2>
+                                <p style="color: #555;">A new enrollment request for the <span style= "color:blue; font-weight : 600;">${examName}</span> Exam is available.</p>
+                                <p style="color: #555;">Please review and process it accordingly.</p>
+                                <h3 style="color: #333;">Details:</h3>
+                                <ul>
+                                    <li><strong>User Name:</strong> ${userName}</li>
+                                    <li><strong>Exam Name:</strong> ${examName}</li>
+                                    <li><strong>Last Date:</strong> ${enddate}</li>
+                                </ul>
+                                <p style="text-align: center;">
+                                    <a href="https://online-exam-portal-ymbm.onrender.com/home" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to HomePage</a>
+                                </p>
+                            </div>
+                        </div>
+                    `
+                });
          return res.redirect("/dashboard/:id")
 
     } catch (error) {

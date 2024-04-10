@@ -6,17 +6,7 @@ const mongoose = require("mongoose");
 const user = require("../../models/users.js");
 const contact = require("../../models/contact.js");
 
-// // Create a nodemailer transporter
-// const transporter = nodemailer.createTransport({
-//     service: 'Gmail', // e.g., 'Gmail', 'Outlook'
-//     auth: {
-//         user: 'abbashussainah2239@gmail.com',
-//         pass: 'Rangerog@000'
-//     }
-// });
 
-// // Function to send email
-// console.error("Error sending email: ", error);
 
 
 
@@ -219,6 +209,7 @@ exports.approveEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
         const enrollStudent = await examEnrollment.findById(id);
+        const examname = enrollStudent.examname
         const studentid = enrollStudent.studentId;
         const curr = await user.findById(studentid);
         const userEmail = curr.email;
@@ -237,7 +228,18 @@ exports.approveEnrollment = async (req, res) => {
             from: process.env.MAIL_USER,
             to: userEmail,
             subject: 'Your enrollment has been approved',
-            text: 'Your enrollment for the exam has been approved.'
+            text: 'Your enrollment for the exam has been approved.',
+            html: `
+            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+                <div style="background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <h2 style="color: #333;">Your enrollment has been approved</h2>
+                    <p style="color: #555;">Congratulations! Your enrollment for the exam <span style= "color:blue; font-weight : 600;">${examname}</span> has been approved.</p>
+                    <p style="text-align: center;">
+                        <a href="https://online-exam-portal-ymbm.onrender.com/dashboard/:id" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to Dashboard</a>
+                    </p>
+                </div>
+            </div>
+        `
         });
 
         // console.log("Email sent: ", info.response);
@@ -271,7 +273,18 @@ exports.rejectEnrollment = async (req, res) => {
         from: process.env.MAIL_USER,
         to: emailid,
         subject: 'Your enrollment has been rejected',
-        text: 'Your enrollment for the exam has been rejected.'
+        text: 'Your enrollment for the exam has been rejected.',
+        html: `
+            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+                <div style="background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <h2 style="color: #333;">Your enrollment has been approved</h2>
+                    <p style="color: #555;">Your enrollment for the exam has been rejected.</p>
+                    <p style="text-align: center;">
+                        <a href="https://online-exam-portal-ymbm.onrender.com/dashboard/:id" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to Dashboard</a>
+                    </p>
+                </div>
+            </div>
+        `
     });
 
     // console.log("Email sent: ", info.response);
