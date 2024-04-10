@@ -71,7 +71,7 @@
           </div>  
         <% } %> 
       </ul>
-      <% if (currUser) { %>
+      <% if (currUser && currUser.emailVerified === "true") { %>
         <div class="username">
           <a href="/dashboard/:id"><p><i class="fa-solid fa-user" style="padding-right: 5px;"></i> <%= currUser.username%></p></a>
         </div>

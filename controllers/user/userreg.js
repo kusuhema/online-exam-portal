@@ -18,20 +18,19 @@ const generateVerificationToken = () => {
     return crypto.randomBytes(20).toString('hex');
 };
 
-module.exports.signupuser = async (req,res)=>{
-    try{
-        let {username , email ,password } = req.body;
+module.exports.signupuser = async (req, res) => {
+    try {
+        let { username, email, password } = req.body;
+
         // Generate verification token
         const verificationToken = generateVerificationToken();
 
-        // Create a new user with email verification status set to false
+        // Create a new user with email verification status set to false and save the token
         const newUser = new User({ email, username, emailVerified: false, verificationToken });
-
-        // Register the user
         const registeredUser = await User.register(newUser, password);
 
         // Send verification email
-        const verificationLink = `https://online-exam-portal-ymbm.onrender.com/verify-email?token=${verificationToken}`;
+        const verificationLink = `${req.protocol}://${req.get('host')}/verify-email?token=${verificationToken}`;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -47,9 +46,10 @@ module.exports.signupuser = async (req,res)=>{
             subject: 'Verify your email address',
             text: `Please click the following link to verify your email address: ${verificationLink}`
         };
+
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                console.log(error);
+                console.error('Error sending verification email:', error);
                 req.flash("error", "Failed to send verification email");
                 return res.redirect("/signup");
             } else {
@@ -58,34 +58,35 @@ module.exports.signupuser = async (req,res)=>{
                 res.redirect("/login");
             }
         });
-        req.flash("success","your are registration is successful");
-        res.redirect("/login")
-    }catch(e) {
-        req.flash("error",e.message);
+    } catch (error) {
+        console.error("Error:", error);
+        req.flash("error", error.message);
         res.redirect("/signup");
     }
-}
+};
 
-module.exports.verifyUser = async(req,res)=>{
+module.exports.verifyUser = async (req, res) => {
     try {
         const token = req.query.token;
         const user = await User.findOne({ verificationToken: token });
-    
+
         if (!user) {
-            return res.status(400).send('Invalid verification token');
+            req.flash("error", "Invalid verification token");
+            return res.redirect("/signup");
         }
-    
+
         user.emailVerified = true;
         user.verificationToken = undefined;
         await user.save();
-    
+
+        req.flash("success", "Email verified successfully. You can now login.");
         res.redirect('/login');
-    
     } catch (error) {
-        req.flash("error",e.message);
+        console.error("Error:", error);
+        req.flash("error", error.message);
         res.redirect("/signup");
     }
-}
+};
 
 module.exports.login = (req,res)=>{
     try {

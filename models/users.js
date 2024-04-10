@@ -26,7 +26,7 @@ const userSchema = new Schema ({
         default : false,
     },
     verificationToken  : {
-        trpe : String,
+        type : String,
     }
 });
 
