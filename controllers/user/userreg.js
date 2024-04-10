@@ -30,7 +30,7 @@ module.exports.signupuser = async (req, res) => {
         const registeredUser = await User.register(newUser, password);
 
         // Send verification email
-        const verificationLink = `${req.protocol}://${req.get('host')}/verify-email?token=${verificationToken}`;
+        const verificationLink = `https://online-exam-portal-ymbm.onrender.com/verify-email?token=${verificationToken}`;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
