@@ -4,7 +4,7 @@ const router = express.Router();
 //user authentication
 const passport = require("passport");
 const {isLoggedin,checkEnrollment} = require("../middleware.js");
-const {registrationUser,signupuser,login, loginuser,logout,home,about,contactus} = require("../controllers/user/userreg.js");
+const {registrationUser,signupuser,login, loginuser,logout,home,about,contactus,verifyUser} = require("../controllers/user/userreg.js");
 const {addExamDetails,exam,showExamDetails,deleteExam,editbyId,saveEditedExam,showuser,deluser} = require("../controllers/admin/examcon.js");
 const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQuestions,
         deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment,contact,feedback,delfeed} = require("../controllers/admin/examcon.js");
@@ -13,6 +13,8 @@ const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPrat
 
 // user login and signup routes
  
+router.get("verify-email",verifyUser);
+
 router.get("/login",login);
 
 router.post("/login",passport.authenticate('local', { failureRedirect: '/login' , failureFlash : true  }),loginuser);
@@ -87,7 +89,7 @@ router.post('/request/:userid/exam/:examid',checkEnrollment,requestEnrollment);
 
 //admin approve exam request
 
-router.get("/approveExam",approveexam);
+router.get("/approveExam",isLoggedin,approveexam);
 
 router.get("/approveExam/:id/student",studentRequests);
 

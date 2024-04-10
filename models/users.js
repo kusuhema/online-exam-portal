@@ -20,7 +20,14 @@ const userSchema = new Schema ({
             ref : "EnrollmentRequest",
             required : true
         }
-    ]
+    ],
+    emailVerified : {
+        type : String,
+        default : false,
+    },
+    verificationToken  : {
+        trpe : String,
+    }
 });
 
 userSchema.plugin(passportLocalMongoose);
