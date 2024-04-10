@@ -255,6 +255,7 @@ exports.rejectEnrollment = async (req, res) => {
     try {
         const { id } = req.params;
         const enrollStudent = await examEnrollment.findById(id);
+        const examname = enrollStudent.examname
         const studentid = enrollStudent.studentId;
         const curr = await user.findById(studentid);
         const emailid = curr.email;
@@ -278,7 +279,7 @@ exports.rejectEnrollment = async (req, res) => {
             <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
                 <div style="background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                     <h2 style="color: #333;">Your enrollment has been approved</h2>
-                    <p style="color: #555;">Your enrollment for the exam has been rejected.</p>
+                    <p style="color: #555;">Your enrollment for the exam <span style= "color:blue; font-weight : 600;">${examname}</span> has been rejected.</p>
                     <p style="text-align: center;">
                         <a href="https://online-exam-portal-ymbm.onrender.com/dashboard/:id" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Go to Dashboard</a>
                     </p>
