@@ -13,8 +13,8 @@ module.exports.registrationUser = (req,res)=>{
 
 module.exports.signupuser = async (req,res)=>{
     try{
-        let {username , email ,password } = req.body;
-        const newUser =new User({email,username});
+        let {username , email ,password , regnumber } = req.body;
+        const newUser =new User({email,username,regnumber});
         const regesteredUser = await User.register(newUser , password);
         
         req.flash("success","your are registration is successful");

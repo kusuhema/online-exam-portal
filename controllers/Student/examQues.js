@@ -122,6 +122,7 @@ module.exports.submitAns = async (req, res) => {
         const Answers = await Exam.findById(id);
 
         const username = req.user.username;
+        const email = req.user.email;
         const userid = req.user._id; 
         const examname = Answers.examName;
         const totalMarks = Answers.totalMarks;
@@ -192,6 +193,46 @@ module.exports.submitAns = async (req, res) => {
         const student = await StudentPerformance.findById(performance._id);
         const date = student.created_at.toLocaleDateString();
         const pfss = student.vedrict;
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASSWORD
+            }
+        });
+
+        // Send email
+        const info = await transporter.sendMail({
+            from: process.env.MAIL_USER,
+            to:  email,
+            subject: 'New enrollment request for the exam',
+            text: 'A new enrollment request for the exam is available.',
+            html: `
+            <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+                <div style="background-color: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <h2 style="color: #333;">Exam Scorecard</h2>
+                    <h3 style="color: #333;">Exam Details:</h3>
+                    <ul>
+                        <li><strong>Exam Name:</strong> ${examname}</li>
+                        <li><strong>Exam Date:</strong> ${date}</li>
+                    </ul>
+                    <h3 style="color: #333;">Student Details:</h3>
+                    <ul>
+                        <li><strong>Student Name:</strong> ${username}</li>
+                    </ul>
+                    <h3 style="color: #333;">Score:</h3>
+                    <ul>
+                        <li><strong>Total Marks:</strong> ${totalMarks}</li>
+                        <li><strong>Passing Marks:</strong> ${passingMarks}</li>
+                        <li><strong>Score:</strong> ${score}</li>
+                        <li><strong>Verdict:</strong> ${vedrict}</li>
+                    </ul>
+                </div>
+            </div>
+        `
+        
+        });
+
         res.render("student/score.ejs",{totalQuestions,score,skipped,incorrect,Answers,username,date,userid,selectedOptions,actualQuestions,examname,pfss});
     }catch(error) {
         console.error("Error:", error);
@@ -209,16 +250,6 @@ module.exports.records = async(req,res)=>{
     }
 }
 
-module.exports.delrecord = async(req,res)=>{
-    try {
-        const {id} = req.params
-        await StudentPerformance.findByIdAndDelete(id);
-        await res.redirect("/student/record")
-    } catch (error) {
-        console.error("Error:", error);
-        res.render("templates/internalerror.ejs")
-    }
-}
 
 
 module.exports.filterRecords = async (req, res) => {
@@ -243,6 +274,7 @@ module.exports.dashboard = async(req,res)=>{
         const username = req.user.username;
         const email = req.user.email;
         const userid = req.user._id;
+        const regnumber = req.user.regnumber;
         const userWithReports = await user.findById(userid).populate("records");
         const userWithEnrolledExams = await user.findById(userid).populate("enrolled");
          // Sort records by most recent first
@@ -257,6 +289,7 @@ module.exports.dashboard = async(req,res)=>{
             email,
             userid,
             reports: userWithReports,
+            regnumber,
             // enroll :userWithEnrolledExams
             enroll: { enrolled: filteredEnrolledExams }
         });

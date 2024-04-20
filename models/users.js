@@ -7,6 +7,10 @@ const userSchema = new Schema ({
         type : String,
         required : true
     },
+    regnumber : {
+        type : String,
+        required : true
+    },
     records : [
         {
           type: Schema.Types.ObjectId,

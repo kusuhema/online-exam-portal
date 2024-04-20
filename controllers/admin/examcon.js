@@ -6,11 +6,6 @@ const mongoose = require("mongoose");
 const user = require("../../models/users.js");
 const contact = require("../../models/contact.js");
 
-
-
-
-
-
 module.exports.addExamDetails = async(req,res)=>{
     try {
         await res.render("admin/examdetails.ejs")

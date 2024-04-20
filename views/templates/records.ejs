@@ -85,10 +85,6 @@
             <div class="col border exam-section-columns">
                 <strong>Pass/Fail</strong>
             </div>
-            <div class="col border exam-section-columns">
-                <strong>Action</strong>
-            </div>
-    
         </div>
     </div>    
     <div class="container text-center ">
@@ -119,11 +115,6 @@
                 </div>
                 <div class="col border exam-section-columns">
                     <%= answer.vedrict %>
-                </div>
-                <div class="col border exam-section-columns">
-                    <form action="/record/<%= answer._id %>/delete?_method=DELETE" method="post">
-                        <button class="btn btn-dark">Delete</button>
-                    </form>
                 </div>
             </div>
        <% } %>
