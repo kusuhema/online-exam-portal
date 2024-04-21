@@ -8,7 +8,7 @@ const {registrationUser,signupuser,login, loginuser,logout,home,about,contactus,
 const {addExamDetails,exam,showExamDetails,deleteExam,editbyId,saveEditedExam,showuser,deluser} = require("../controllers/admin/examcon.js");
 const {addQuestions,addQuestToDb,ShowQuestionsByID,editQuestionsById,saveEditQuestions,
         deleteQuestionFromExam,approveexam,studentRequests,approveEnrollment,rejectEnrollment,contact,feedback,delfeed} = require("../controllers/admin/examcon.js");
-const {examInstructions,getQuestionFromExamID,submitAns,records,delrecord,showExams,dashboard,filterRecords,requestEnrollment,reviews,delRevview} = require("../controllers/Student/examQues.js");
+const {examInstructions,getQuestionFromExamID,submitAns,records,showExams,dashboard,filterRecords,requestEnrollment,reviews,delRevview} = require("../controllers/Student/examQues.js");
 const {praexam,praticeTest,pythonPraticeTest,javaPraticeTest,cPraticeTest,ccPraticeTest}= require("../controllers/pratice/pratice.js")
 
 // user login and signup routes
@@ -108,8 +108,6 @@ router.post("/StudentExam/:id/exam",submitAns);
 
 //student record routes
 router.get("/student/record",isLoggedin,records);
-
-router.delete("/record/:id/delete",delrecord);
 
 router.post('/filter-records', filterRecords);
 
